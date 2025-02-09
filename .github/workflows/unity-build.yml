@@ -1,0 +1,38 @@
+name: Unity Build CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    timeout-minutes: 15
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest] # macos-latest est commenté pour économiser des minutes
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Unity
+        uses: game-ci/unity-builder@v2
+        with:
+          unityVersion: 6000.0.36f1
+
+      - name: Build Unity Project (Windows)
+        run: |
+          unity-editor -batchmode -quit -projectPath . -buildWindowsPlayer "Builds/Windows/MyGame.exe" -buildTarget StandaloneWindows64
+        if: matrix.os == 'windows-latest'
+
+      - name: Build Unity Project (Linux)
+        run: |
+          unity-editor -batchmode -quit -projectPath . -buildLinux64Player "Builds/Linux/MyGame.x86_64"
+        if: matrix.os == 'ubuntu-latest'
+
+      # commented because the MacOS build cost twice as much minutes of github workflow	
+      # - name: Build Unity Project (MacOS)  
+      #   run: |
+      #     unity-editor -batchmode -quit -projectPath . -buildOSXUniversalPlayer "Builds/Mac/MyGame.app"
+      #   if: matrix.os == 'macos-latest'
