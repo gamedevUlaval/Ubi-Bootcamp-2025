@@ -5,8 +5,8 @@
             "SA1309": false,  // Désactive le préfixe "_" pour les variables privées
             "SA1600": false,  // Désactive l'obligation de commenter les méthodes publiques
             "SA1300": true,   // Force PascalCase pour classes et méthodes
-            "SA1115": true,   // Empêche les méthodes trop longues
-            "SA1124": true    // Détecte les méthodes trop longues
+            "SA1400": true,   // The access modifier for a C# element has not been explicitly defined.
+            "SA1500": true    // The opening or closing brace within a C# statement, element, or expression is not placed on its own line.
         }
     }
 }
