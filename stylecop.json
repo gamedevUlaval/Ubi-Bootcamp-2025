@@ -1,0 +1,12 @@
+{
+    "settings": {
+        "rules": {
+            "SA1200": false,  // Empêche le déplacement des using dans les le namespace
+            "SA1309": false,  // Désactive le préfixe "_" pour les variables privées
+            "SA1600": false,  // Désactive l'obligation de commenter les méthodes publiques
+            "SA1300": true,   // Force PascalCase pour classes et méthodes
+            "SA1115": true,   // Empêche les méthodes trop longues
+            "SA1124": true    // Détecte les méthodes trop longues
+        }
+    }
+}
