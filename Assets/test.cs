@@ -1,9 +1,9 @@
 class PlayerManager
 {
-    public string playerName;
+    public string playername;
 
     public void setname(string name)
     {
-        playerName = name;
+        playername = name;
     }
 }
