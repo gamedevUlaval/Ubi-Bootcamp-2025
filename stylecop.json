@@ -1,12 +1,42 @@
 {
     "settings": {
         "rules": {
-            "SA1200": false,  // Empêche le déplacement des using dans les le namespace
+            "SA1200": false,  // Empêche le déplacement des using dans le namespace
             "SA1309": false,  // Désactive le préfixe "_" pour les variables privées
-            "SA1600": false,  // Désactive l'obligation de commenter les méthodes publiques
+            "SA1101": false,  // Désactive l'obligation de préfixer par "this."
             "SA1300": true,   // Force PascalCase pour classes et méthodes
-            "SA1400": true,   // The access modifier for a C# element has not been explicitly defined.
-            "SA1500": true    // The opening or closing brace within a C# statement, element, or expression is not placed on its own line.
+            "SA1400": false,  // Exige la définition explicite des modificateurs d'accès
+            "SA1500": true,   // Exige que les accolades soient sur une ligne distincte
+            "SA1003": true,   // Vérifie l'espacement autour des opérateurs
+            
+            // Désactivation de toutes les règles de documentation
+            "SA1600": false,  // Empêche l'obligation de documenter les méthodes publiques
+            "SA1601": false,  // Empêche l'obligation de documenter les classes, delegates et enums
+            "SA1602": false,  // Empêche l'obligation de documenter les énumérations
+            "SA1603": false,  // Empêche l'obligation de documenter les constantes
+            "SA1604": false,  // Empêche l'obligation de documenter les interfaces
+            "SA1605": false,  // Empêche l'obligation de documenter les classes partielles
+            "SA1606": false,  // Empêche l'obligation de documenter les propriétés auto-implémentées
+            "SA1607": false,  // Empêche l'obligation de documenter les propriétés
+            "SA1608": false,  // Empêche l'obligation de documenter les événements
+            "SA1609": false,  // Empêche l'obligation de documenter les membres d'interface explicitement implémentés
+            "SA1610": false,  // Empêche l'obligation de documenter les paramètres de méthode
+            "SA1611": false,  // Empêche l'obligation de documenter tous les paramètres de méthode
+            "SA1612": false,  // Empêche l'obligation de documenter les paramètres de type générique
+            "SA1613": false,  // Empêche l'obligation de documenter les valeurs de retour
+            "SA1614": false,  // Empêche l'obligation de documenter les valeurs de retour de méthode
+            "SA1615": false,  // Empêche l'obligation de documenter les paramètres de propriété indexée
+            "SA1616": false,  // Empêche l'obligation de documenter les paramètres de délégué
+            "SA1617": false,  // Empêche l'obligation de documenter la valeur de retour d'un délégué
+            "SA1618": false,  // Empêche l'obligation de documenter les génériques d'un délégué
+            "SA1620": false,  // Empêche l'obligation d'utiliser `<returns>` pour les méthodes qui renvoient une valeur
+            "SA1623": false,  // Empêche l'obligation d'avoir une documentation XML cohérente pour une propriété
+            "SA1624": false,  // Empêche l'obligation d'avoir une documentation XML cohérente pour les classes et structs
+            "SA1625": false,  // Empêche l'obligation d'avoir une documentation XML cohérente pour les paramètres
+            "SA1626": false,  // Empêche l'obligation d'avoir une documentation XML cohérente pour les méthodes privées
+            "SA1627": false,  // Empêche l'obligation d'avoir une documentation XML cohérente pour les délégués
+            "SA1629": false,  // Empêche l'obligation d'avoir un point à la fin des commentaires de documentation
+            "SA1633": false   // Empêche l'obligation d'avoir un fichier d'en-tête de licence/documentation
         }
     }
 }

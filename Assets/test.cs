@@ -1,12 +1,9 @@
 class PlayerManager
 {
-    public string playername;
-    int MaVariableMalNommée = 10;
+    private string playerName;
 
-    public void setname(string name)
+    public void SetName(string name)
     {
-        
-        playername =name;
-        MaVariableMalNommée  = 20;
+        playerName = name;
     }
 }
