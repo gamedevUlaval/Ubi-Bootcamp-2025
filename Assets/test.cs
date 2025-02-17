@@ -2,7 +2,7 @@ class PlayerManager
 {
     private string playerName;
 
-    public void SetName(string name)
+    public void setName(string name)
     {
         playerName = name;
     }
