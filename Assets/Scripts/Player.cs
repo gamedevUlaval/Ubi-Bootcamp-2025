@@ -1,3 +1,6 @@
+using System.Linq;
+using Unity.Multiplayer.Playmode;
+using Unity.Netcode;
 using Unity.Netcode.Components;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,18 +12,23 @@ public class Player : NetworkTransform
     
     void Start()
     {
-        if (NetworkManager.ConnectedClients.Count == 1)
+        if (!HasAuthority)
         {
-            GameObject HumanPrefab = Resources.Load<GameObject>("Human");
-            Debug.Log(HumanPrefab);
-            Instantiate(HumanPrefab, transform);
+            return;
+        }
+        
+        GameObject prefab;
+        if (!CurrentPlayer.ReadOnlyTags().Contains("INIT_GHOST") && (NetworkManager.ConnectedClients.Count == 1 || CurrentPlayer.ReadOnlyTags().Contains("INIT_HUMAN")))
+        {
+            prefab = Resources.Load<GameObject>("Human");
         }
         else
         {
-            GameObject GhostPrefab = Resources.Load<GameObject>("Ghost");
-            Debug.Log(GhostPrefab);
-            Instantiate(GhostPrefab, transform);
+            prefab = Resources.Load<GameObject>("Ghost");
         }
+        var instance = Instantiate(prefab, transform);
+        var instanceNetworkObject = instance.GetComponent<NetworkObject>();
+        instanceNetworkObject.Spawn();
     }
 
     private void Update()

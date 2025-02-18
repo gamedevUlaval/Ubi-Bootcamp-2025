@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Unity.Multiplayer.Playmode;
 using Unity.Netcode;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
@@ -28,6 +30,12 @@ public class ConnectionManager : MonoBehaviour
         m_NetworkManager.OnClientConnectedCallback += OnClientConnectedCallback;
         m_NetworkManager.OnSessionOwnerPromoted += OnSessionOwnerPromoted;
         await UnityServices.InitializeAsync();
+        if (CurrentPlayer.ReadOnlyTags().Any(str=>str.Contains("INIT")))
+        {
+            _sessionName = Environment.UserName;
+            _profileName = CurrentPlayer.ReadOnlyTags().First();
+            await CreateOrJoinSessionAsync();
+        }
     }
 
     private void OnSessionOwnerPromoted(ulong sessionOwnerPromoted)
