@@ -54,7 +54,7 @@ Liste des participants et de leur rôle dans le projet :
 | Nom           | Discord | Domaine   |
 |---------------|---------|-----------|
 | Vincent Vilain | Newbxa  | Programmer |
-| |   |  |
+| Nour Zouine | Nor  | Programmer |
 | |   |  |
 | |   |  |
 | |   |  |
