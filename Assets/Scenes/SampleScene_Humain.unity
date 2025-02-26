@@ -259,7 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a10be062df9ab4bb35e32167811b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerActivationDistance: 100
+  interactableObject: {fileID: 1743989361}
+  playerActivationDistance: 0.8
   spawner: {fileID: 867533760}
   objectToSpawn: {fileID: 1285112638689288654, guid: 13b7438355bf5354fa647cbaa4e82b95, type: 3}
 --- !u!95 &278910956
