@@ -13,6 +13,8 @@ public class CustomPlayerSpawner : NetworkBehaviour
     [Header("Références aux prefabs de joueur")]
     public GameObject playerPrefabGhost;
     public GameObject playerPrefabHuman;
+    [Header("SpawnPoints")]
+    public Transform[] spawnPoints;
 
     // Stocke la sélection de rôle de chaque client (0 : Ghost, 1 : Human)
     private Dictionary<int, int> clientRoleSelections = new Dictionary<int, int>();
@@ -97,6 +99,7 @@ public class CustomPlayerSpawner : NetworkBehaviour
     // Choisit le prefab en fonction du rôle et spawne le joueur
     private void SpawnPlayer(NetworkConnection conn, int role)
     {
+        int spawnIndex = 0;
         if (playerCount >= maxPlayers)
         {
             Debug.LogWarning("Nombre maximum de joueurs atteint.");
@@ -111,6 +114,18 @@ public class CustomPlayerSpawner : NetworkBehaviour
             Debug.LogError("Le prefab correspondant n'est pas assigné !");
             return;
         }
+
+        // Choisir un spawn point en fonction du nombre de joueurs déjà spawnés
+        if (spawnPoints != null && prefabToSpawn == playerPrefabGhost)
+        {
+            spawnIndex = 0;
+            
+        }else
+        {
+            spawnIndex = 1;
+        }
+        prefabToSpawn.transform.position = spawnPoints[spawnIndex].position;
+        prefabToSpawn.transform.rotation = spawnPoints[spawnIndex].rotation;
 
         // Instanciation côté serveur et spawn via FishNet
         GameObject playerInstance = Instantiate(prefabToSpawn);

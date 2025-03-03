@@ -62,8 +62,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8436785001731980543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.96, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -213,7 +213,6 @@ MonoBehaviour:
   NetworkBehaviours:
   - {fileID: 127950505906664050}
   - {fileID: -6187202615040062799}
-  - {fileID: 0}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
@@ -243,8 +242,8 @@ MonoBehaviour:
   <AssetPathHash>k__BackingField: 1116491525336124471
   <SceneId>k__BackingField: 0
   SerializedTransformProperties:
-    Position: {x: 0, y: 0.96, z: 0}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    Position: {x: -6.9, y: 0, z: 0}
+    Rotation: {x: -0, y: -0, z: -0, w: 1}
     Scale: {x: 1, y: 1, z: 1}
     IsValid: 1
 --- !u!114 &-6187202615040062799

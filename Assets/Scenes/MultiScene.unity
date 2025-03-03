@@ -968,6 +968,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &839999988 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2062987194876085353, guid: 7249133dcc441264b809a6980954ff89, type: 3}
+  m_PrefabInstance: {fileID: 1337735065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &895670220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,17 +1329,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 397040019301115452, guid: 7249133dcc441264b809a6980954ff89, type: 3}
+      propertyPath: m_Name
+      value: SpawnPointGhost
+      objectReference: {fileID: 0}
     - target: {fileID: 2062987194876085353, guid: 7249133dcc441264b809a6980954ff89, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.92
+      value: -6.9
       objectReference: {fileID: 0}
     - target: {fileID: 3384568842274832664, guid: 7249133dcc441264b809a6980954ff89, type: 3}
       propertyPath: m_Name
       value: World
       objectReference: {fileID: 0}
+    - target: {fileID: 4847294934769481401, guid: 7249133dcc441264b809a6980954ff89, type: 3}
+      propertyPath: m_Name
+      value: SpawnPointHumain
+      objectReference: {fileID: 0}
     - target: {fileID: 6171553830129021651, guid: 7249133dcc441264b809a6980954ff89, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.84
+      value: 6.8
       objectReference: {fileID: 0}
     - target: {fileID: 7732443318836042775, guid: 7249133dcc441264b809a6980954ff89, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1381,6 +1394,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7249133dcc441264b809a6980954ff89, type: 3}
+--- !u!4 &1369436617 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6171553830129021651, guid: 7249133dcc441264b809a6980954ff89, type: 3}
+  m_PrefabInstance: {fileID: 1337735065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1434403961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,6 +1668,9 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 0}
   playerPrefabGhost: {fileID: 8436785001731980543, guid: cb43a70bc8dbf7a4184cf3c238ede64a, type: 3}
   playerPrefabHuman: {fileID: 8436785001731980543, guid: 2cd26b00fde299a44a5623362ac33e50, type: 3}
+  spawnPoints:
+  - {fileID: 1369436617}
+  - {fileID: 839999988}
 --- !u!4 &1506227802
 Transform:
   m_ObjectHideFlags: 0
