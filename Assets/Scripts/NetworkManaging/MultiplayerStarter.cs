@@ -1,23 +1,29 @@
 using UnityEngine;
 using FishNet.Managing;
-using FishNet;
-
+using FishNet; 
+using FishySteamworks;
 public class MultiplayerStarter : MonoBehaviour
 {
-    // Démarre le mode hôte (serveur et client)
     public void StartHost()
     {
+        Debug.Log("Démarrage du serveur en mode Host via Steam P2P...");
+        
         if (InstanceFinder.ServerManager != null)
             InstanceFinder.ServerManager.StartConnection();
-        
+
         if (InstanceFinder.ClientManager != null)
             InstanceFinder.ClientManager.StartConnection();
     }
 
-    // Démarre en mode client uniquement
     public void StartClient()
     {
+        Debug.Log("Tentative de connexion via Steam P2P...");
+
         if (InstanceFinder.ClientManager != null)
+        {
+        
+
             InstanceFinder.ClientManager.StartConnection();
+        }
     }
 }
