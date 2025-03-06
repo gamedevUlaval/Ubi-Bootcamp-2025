@@ -34,7 +34,7 @@ public class ItemIsPicked : MonoBehaviour
     {
         pickupDistance = Vector3.Distance(player.position, transform.position);
 
-        if (pickupDistance <= 2)
+        if (pickupDistance <= 0.5)
         {
             if (isPicked == false && pickupPoint.childCount == 0)
             {
