@@ -47,4 +47,17 @@ public class InteractableObject : MonoBehaviour
             canvas.gameObject.SetActive(state);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            ShowPrompt();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        HidePrompt();
+    }
 }

@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerActions : MonoBehaviour
 {
-    [SerializeField] private InteractableObject interactableObject;
     [SerializeField] private float playerActivationDistance;
     private bool activeRay = false;
     private CharacterController _characterController;
@@ -15,6 +14,7 @@ public class PlayerActions : MonoBehaviour
     private void Awake()
     {
         playerControls = new InputHumain();
+        _characterController = GetComponent<CharacterController>();
     }
 
     private void OnEnable()
@@ -33,6 +33,7 @@ public class PlayerActions : MonoBehaviour
     {
         RaycastHit hit;
         activeRay = Physics.Raycast(_characterController.transform.position + Vector3.up, _characterController.transform.forward, out hit);
+
         //if player is in reach from an interactable object
         if (activeRay && hit.distance < playerActivationDistance && hit.transform.tag == "Interactible")
         {
@@ -62,13 +63,6 @@ public class PlayerActions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInReach())
-        {
-            interactableObject.ShowPrompt();
-        }
-        else
-        {
-            interactableObject.HidePrompt();
-        }
+        
     }
 }

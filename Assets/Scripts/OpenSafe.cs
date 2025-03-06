@@ -5,7 +5,10 @@ using System;
 
 public class OpenSafe : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI codeText;
+    [SerializeField] private TextMeshProUGUI codeText;
+    [SerializeField] private AudioClip beepSound;
+    [SerializeField] private AudioClip successSound;
+    [SerializeField] private AudioClip wrongSound;
 
     private InputHumain playerControls;
     private string codeTextValue = "";
@@ -42,16 +45,11 @@ public class OpenSafe : MonoBehaviour
     {
         codeText.text = codeTextValue;
 
-        if (isInReach)
+        if (isInReach && codeTextValue != safeCode)
         {
             codePannel.SetActive(true);
         }
         else
-        {
-            codePannel.SetActive(false);
-        }
-
-        if (codeTextValue == safeCode)
         {
             codePannel.SetActive(false);
         }
@@ -80,10 +78,22 @@ public class OpenSafe : MonoBehaviour
     {
         if (codeTextValue.Length >= 3)
         {
-            codeTextValue = "";
+            codeTextValue += digit;
+
+            if (codeTextValue == safeCode)
+            {
+                GetComponent<AudioSource>().PlayOneShot(successSound);
+                codePannel.SetActive(false);
+            }
+            else
+            {
+                GetComponent<AudioSource>().PlayOneShot(wrongSound);
+                codeTextValue = "";
+            }
         }
         else
         {
+            GetComponent<AudioSource>().PlayOneShot(beepSound);
             codeTextValue += digit;
         }
     }

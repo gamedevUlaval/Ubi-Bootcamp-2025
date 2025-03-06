@@ -13,7 +13,6 @@ public class ItemIsPicked : MonoBehaviour
 
     public bool readyToThrow;
     public bool isPicked;
-    private int interactionCount = 0;
 
     Rigidbody rb;
 
@@ -34,6 +33,15 @@ public class ItemIsPicked : MonoBehaviour
     {
         pickupDistance = Vector3.Distance(player.position, transform.position);
 
+        if (isPicked)
+        {
+            rb.AddForce(player.transform.forward * force);
+            this.transform.parent = null;
+            this.transform.position = transform.position;
+            GetComponent<Rigidbody>().useGravity = true;
+            isPicked = false;
+        }
+
         if (pickupDistance <= 0.5)
         {
             if (isPicked == false && pickupPoint.childCount == 0)
@@ -42,22 +50,7 @@ public class ItemIsPicked : MonoBehaviour
                 this.transform.position = pickupPoint.position;
                 this.transform.parent = GameObject.Find("PickupPoint").transform;
                 isPicked = true;
-                readyToThrow = true;
             }
-        }
-
-        interactionCount++;
-
-        if (isPicked && interactionCount == 2)
-        {
-            rb.AddForce(player.transform.forward * force);
-            this.transform.parent = null;
-            this.transform.position = transform.position;
-            GetComponent<Rigidbody>().useGravity = true;
-            isPicked = false;
-            readyToThrow = false;
-            force = 0;
-            interactionCount = 0;
         }
     }
 
