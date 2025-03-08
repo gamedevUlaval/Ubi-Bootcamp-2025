@@ -42,7 +42,7 @@ Notre objectif est de créer un jeu respectant les critères du concours tout en
 - **Langage** : C#
 - **Versioning** : GitHub
 - **Communication** : Discord
-- **Modélisation et animation** : 
+- **Modélisation et animation** :  Maya et ZBrush
 - **Documentation** : Google Drive
 
 ---
