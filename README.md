@@ -59,7 +59,7 @@ Liste des participants et de leur rôle dans le projet :
 | Brandon Tremblay | bt801  | Programmer |
 | Ben Alaya Aymen | pouchou  | Artiste |
 | Katrina Bonneau |  peepoo_7 | Artiste |
-| |   |  |
+| Sara Simard | azara_s  | Artiste |
 | |   |  |
 | |   |  |
 | |   |  |
