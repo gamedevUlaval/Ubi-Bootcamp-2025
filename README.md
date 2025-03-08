@@ -57,7 +57,7 @@ Liste des participants et de leur rôle dans le projet :
 | Nour Zouine | Nor  | Programmer |
 | Sophie Nayebi | rogeranonyme1  | Programmer |
 | Brandon Tremblay | bt801  | Programmer |
-| |   |  |
+| Ben Alaya Aymen | pouchou  | Artiste |
 | |   |  |
 | |   |  |
 | |   |  |
