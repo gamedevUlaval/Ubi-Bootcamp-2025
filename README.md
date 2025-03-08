@@ -58,7 +58,7 @@ Liste des participants et de leur rôle dans le projet :
 | Sophie Nayebi | rogeranonyme1  | Programmer |
 | Brandon Tremblay | bt801  | Programmer |
 | Ben Alaya Aymen | pouchou  | Artiste |
-| |   |  |
+| Katrina Bonneau |  peepoo_7 | Artiste |
 | |   |  |
 | |   |  |
 | |   |  |
