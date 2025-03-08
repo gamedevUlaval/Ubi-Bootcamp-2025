@@ -55,7 +55,7 @@ Liste des participants et de leur rôle dans le projet :
 |---------------|---------|-----------|
 | Vincent Vilain | Newbxa  | Programmer |
 | Nour Zouine | Nor  | Programmer |
-| |   |  |
+| Sophie Nayebi | rogeranonyme1  | Programmer |
 | |   |  |
 | |   |  |
 | |   |  |
