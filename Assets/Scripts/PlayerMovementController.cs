@@ -9,14 +9,14 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator animator;
     private Camera mainCamera;
-
+    
     private void Awake()
     {
         animator = GetComponent<Animator>();
         mainCamera = Camera.main;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         MovePlayer();
         AimTowardsMouse();
