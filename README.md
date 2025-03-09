@@ -55,7 +55,7 @@ Liste des participants et de leur rôle dans le projet :
 |---------------|---------|-----------|
 | Vincent Vilain | Newbxa  | Programmer |
 | Nour Zouine | Nor  | Programmer |
-| Sophie Nayebi | rogeranonyme1  | Programmer |
+| Sophie Nayebi | rogeranonyme  | Programmer |
 | Brandon Tremblay | bt801  | Programmer |
 | Ben Alaya Aymen | pouchou  | Artiste |
 | Katrina Bonneau |  peepoo_7 | Artiste |
