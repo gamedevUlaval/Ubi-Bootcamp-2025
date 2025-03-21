@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 3415663656574633918}
   - component: {fileID: 28744421471239009}
   - component: {fileID: 5978658926393952448}
-  - component: {fileID: 1815347088281567302}
   m_Layer: 0
   m_Name: ObjetBriseVitre
   m_TagString: BriseVitre
@@ -152,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2143511710
+  GlobalObjectIdHash: 3034372426
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -218,17 +217,3 @@ MonoBehaviour:
   UseRigidBodyForMotion: 0
   AutoUpdateKinematicState: 1
   AutoSetKinematicOnDespawn: 1
---- !u!114 &1815347088281567302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451283701533724013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bae39275eb4999a4a9286cd8a506dae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  humanClientId: 0

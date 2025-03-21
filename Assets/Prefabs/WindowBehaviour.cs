@@ -5,6 +5,7 @@ using Unity.Netcode;
 public class WindowBehaviour : NetworkBehaviour
 {
     private bool isBroken = false;
+    Rigidbody rb;
 
 
     private void OnCollisionEnter(Collision other)
@@ -25,25 +26,10 @@ public class WindowBehaviour : NetworkBehaviour
         {
             DestroyWindow();
         }
-        else // only the server can since it is with a server RPC attribute
-        {
-            BreakWindowServerRpc();
-        }
     }
-
-    [ServerRpc]
-    private void BreakWindowServerRpc()
-    {
-        if (isBroken) return;//verify if it is already broken
-        isBroken = true;
-        Debug.Log($" Window broken by client {OwnerClientId}");
-        DestroyWindow();
-    }
-
     private void DestroyWindow()
     {
         Debug.Log("Vitre Brisée");
-
         GetComponent<NetworkObject>().Despawn(true); //Destroys object for all clients
     }
 }
