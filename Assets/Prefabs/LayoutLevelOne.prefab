@@ -1563,7 +1563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 740703785
+  GlobalObjectIdHash: 1479094399
   InScenePlacedSourceGlobalObjectIdHash: 3378463846
   DeferredDespawnTick: 0
   Ownership: 1
@@ -2175,7 +2175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 931607805
+  GlobalObjectIdHash: 296203309
   InScenePlacedSourceGlobalObjectIdHash: 3378463846
   DeferredDespawnTick: 0
   Ownership: 1
@@ -2279,7 +2279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3994479542
+  GlobalObjectIdHash: 1065813196
   InScenePlacedSourceGlobalObjectIdHash: 3378463846
   DeferredDespawnTick: 0
   Ownership: 1
@@ -2390,11 +2390,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -888339225876019468, guid: def7d8bd1257c2a448824db16d77817f, type: 3}
       propertyPath: UseRigidBodyForMotion
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -888339225876019468, guid: def7d8bd1257c2a448824db16d77817f, type: 3}
+      propertyPath: AutoUpdateKinematicState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6302997338426613046, guid: def7d8bd1257c2a448824db16d77817f, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1252965230
+      value: 2539499787
       objectReference: {fileID: 0}
     - target: {fileID: 6302997338426613046, guid: def7d8bd1257c2a448824db16d77817f, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
