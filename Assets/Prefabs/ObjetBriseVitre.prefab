@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 494586540261989838}
   - component: {fileID: 3415663656574633918}
   - component: {fileID: 28744421471239009}
-  - component: {fileID: 967742724189493849}
   m_Layer: 0
   m_Name: ObjetBriseVitre
   m_TagString: Untagged
@@ -172,19 +171,3 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &967742724189493849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451283701533724013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 141fcca842920844aaf943e3dc127d49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  rb: {fileID: 0}
-  throwForce: 5
-  moveSpeed: 10
