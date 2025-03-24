@@ -27,7 +27,7 @@ namespace PlayerControls
         
         public Vector2 MoveInput { get; private set; }
         public Vector2 LookInput { get; private set; }
-        public float SprintInput { get; private set; }
+        public bool IsSprinting { get; private set; }
         public bool InteractInput { get; private set; }
         public bool DropInput { get; private set; }
         public bool PauseInput { get; private set; }
@@ -72,8 +72,8 @@ namespace PlayerControls
             lookAction.performed += context => LookInput = context.ReadValue<Vector2>();
             lookAction.canceled += context => LookInput = Vector2.zero;
             
-            sprintAction.performed += context => SprintInput = context.ReadValue<float>();
-            sprintAction.canceled += context => SprintInput = 0f;
+            sprintAction.performed += context => IsSprinting = true;
+            sprintAction.canceled += context => IsSprinting = false;
             
             interactAction.started += context => InteractInput = true;
             interactAction.canceled += context => InteractInput = false;
