@@ -1308,7 +1308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8448347799933532707, guid: d9819913d5833f24ca5ef3a12e12f3c2, type: 3}
       propertyPath: m_TagString
-      value: Ghost
+      value: Human
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6468523263225678400, guid: d9819913d5833f24ca5ef3a12e12f3c2, type: 3}
