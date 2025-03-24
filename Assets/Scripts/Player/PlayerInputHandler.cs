@@ -39,7 +39,7 @@ namespace PlayerControls
             if (Instance is null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
+                //DontDestroyOnLoad(gameObject);
             }
             else
             {

@@ -1,9 +1,10 @@
 using PlayerControls;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace PlayerMovement
 {
-    public class PlayerMovementController : MonoBehaviour
+    public class PlayerMovementController : NetworkBehaviour
     {
         [SerializeField] float walkSpeed = 1f;
         [SerializeField] float sprintMultiplier = 1.5f;
@@ -24,6 +25,10 @@ namespace PlayerMovement
 
         void FixedUpdate()
         {
+            if (!HasAuthority)
+            {
+                return;
+            }
             MovePlayer();
             LookTowardsMouse();
         }
