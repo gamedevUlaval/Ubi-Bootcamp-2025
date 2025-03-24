@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5390928199964477831}
   - component: {fileID: 469206073577075889}
   - component: {fileID: 6302997338426613046}
+  - component: {fileID: 7952069698428149971}
   m_Layer: 0
   m_Name: Vitre
   m_TagString: Untagged
@@ -134,3 +135,16 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
+--- !u!114 &7952069698428149971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6864863810010721181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5cf06e55467b0498ef5e4e1759e016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
