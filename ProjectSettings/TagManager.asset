@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - BriseVitre
+  - Human
+  - Ghost
   layers:
   - Default
   - TransparentFX
@@ -14,10 +16,10 @@ TagManager:
   - UI
   - 
   - Ground
+  - Traversable
   - 
-  - 
-  - 
-  - 
+  - InteractableObjectHuman
+  - InteractableObjectGhost
   - 
   - 
   - 
