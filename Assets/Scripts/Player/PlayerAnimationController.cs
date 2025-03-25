@@ -1,7 +1,8 @@
 using PlayerMovement;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerAnimationController : MonoBehaviour
+public class PlayerAnimationController : NetworkBehaviour
 {
     PlayerMovementController _playerMovementController;
     Animator _animator;
@@ -21,15 +22,16 @@ public class PlayerAnimationController : MonoBehaviour
     
     void FixedUpdate()
     {
+        if (!HasAuthority)
+        {
+            return;
+        }
         UpdateAnimator();
     }
     
     void UpdateAnimator()
     {
         if (!_isMoving) return;
-        
-        bool isSprinting = _playerMovementController.IsSprinting();
-        _animator.SetBool(IsSprinting, isSprinting);
         
         Vector3 moveDirection = _playerMovementController.GetPlayerMovement();
         

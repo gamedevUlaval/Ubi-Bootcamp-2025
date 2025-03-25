@@ -21,7 +21,7 @@ public class WindowBehaviour : NetworkBehaviour
         if (isBroken) return;
 
 
-        if (IsOwner) // if it is the owner
+        if (HasAuthority) // if it is the owner
         {
             DestroyWindow();
         }

@@ -1,19 +1,22 @@
+
+using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Mirror : MonoBehaviour
 {
+    public MeshRenderer meshRenderer;
     public Material baseMaterial;
     public Material foggyMaterial;
-    public MeshRenderer mirrorMeshRenderer;
+
     void Start()
     {
-        mirrorMeshRenderer.material = baseMaterial;
+        meshRenderer.SetMaterials(new List<Material> { baseMaterial});
     }
     
     [ContextMenu("Fog up mirror")]
-    void OnInteraction()
+    public void OnInteraction()
     {
-        mirrorMeshRenderer.material = foggyMaterial;
+        meshRenderer.SetMaterials(new List<Material> { foggyMaterial});
     }
-
 }
