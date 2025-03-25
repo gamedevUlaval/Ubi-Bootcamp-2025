@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: vitre1
       objectReference: {fileID: 0}
+    - target: {fileID: 1123270796470021047, guid: f4e84c54251d1634dab2d7f6ec086a60, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d90b8addd73f58d48ab22b75e482d09c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
