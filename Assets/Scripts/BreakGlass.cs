@@ -3,7 +3,7 @@ using UnityEngine;
 public class BreakGlass : MonoBehaviour
 {
     public AudioClip sound;
-    public GameObject glass, brokenGlass;
+    public GameObject glass;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -12,7 +12,7 @@ public class BreakGlass : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(sound);
             glass.SetActive(false);
             GetComponent<BoxCollider>().enabled = false;
-            brokenGlass.SetActive(true);
+            //brokenGlass.SetActive(true);
         }
     }
 }

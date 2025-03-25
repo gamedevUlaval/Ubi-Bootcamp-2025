@@ -55,6 +55,7 @@ public class OpenSafe : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Debug.Log("Okay");
             if (playerControls.InteractInput)
             {
                 isInReach = true;

@@ -18,7 +18,7 @@ public class ItemIsPicked : MonoBehaviour
 
     private void OnEnable()
     {
-        playerControls = new PlayerInputHandler();
+        playerControls = PlayerInputHandler.Instance;
     }
 
     private void PickOrThrow()
@@ -59,6 +59,7 @@ public class ItemIsPicked : MonoBehaviour
     {
         if (playerControls.InteractInput)
         {
+            Debug.Log("Interact");
             PickOrThrow();
         }
     }
