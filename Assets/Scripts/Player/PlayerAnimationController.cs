@@ -1,13 +1,15 @@
 using PlayerMovement;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerAnimationController : MonoBehaviour
+public class PlayerAnimationController : NetworkBehaviour
 {
     PlayerMovementController _playerMovementController;
     Animator _animator;
     
     static readonly int VelocityZ = Animator.StringToHash("VelocityZ");
     static readonly int VelocityX = Animator.StringToHash("VelocityX");
+    static readonly int IsSprinting = Animator.StringToHash("IsSprinting");
     
     bool _isRunning = false;
     bool _isMoving = true;
@@ -20,6 +22,10 @@ public class PlayerAnimationController : MonoBehaviour
     
     void FixedUpdate()
     {
+        if (!HasAuthority)
+        {
+            return;
+        }
         UpdateAnimator();
     }
     

@@ -12,7 +12,6 @@ public class WindowBehaviour : NetworkBehaviour
     {
         if (other.gameObject.CompareTag("BriseVitre"))
         {
-            Debug.Log("COLLISION!");
             BreakWindow();
         }
     }
@@ -22,7 +21,7 @@ public class WindowBehaviour : NetworkBehaviour
         if (isBroken) return;
 
 
-        if (IsOwner) // if it is the owner
+        if (HasAuthority) // if it is the owner
         {
             DestroyWindow();
         }
