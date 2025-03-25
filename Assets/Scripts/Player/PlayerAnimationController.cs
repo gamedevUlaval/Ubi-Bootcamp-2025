@@ -33,9 +33,6 @@ public class PlayerAnimationController : NetworkBehaviour
     {
         if (!_isMoving) return;
         
-        bool isSprinting = _playerMovementController.IsSprinting();
-        _animator.SetBool(IsSprinting, isSprinting);
-        
         Vector3 moveDirection = _playerMovementController.GetPlayerMovement();
         
         if (moveDirection.magnitude > 0.01f)
