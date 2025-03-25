@@ -1,9 +1,11 @@
+using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace PlayerControls
 {
-    public class PlayerInputHandler : MonoBehaviour
+    public class PlayerInputHandler : NetworkBehaviour
     {
         [SerializeField] InputActionAsset playerControls;
         
@@ -34,12 +36,17 @@ namespace PlayerControls
         
         public static PlayerInputHandler Instance { get; private set; }
         
-        void Awake()
+        public override void OnNetworkSpawn()
         {
+            if (!HasAuthority)
+            {
+                DontDestroyOnLoad(gameObject);
+                return;
+            }
             if (Instance is null)
             {
                 Instance = this;
-                //DontDestroyOnLoad(gameObject);
+                DontDestroyOnLoad(gameObject);
             }
             else
             {
@@ -50,6 +57,8 @@ namespace PlayerControls
             FindActionMap();
 
             RegisterMovementActions();
+            
+            OnEnable();
             
             InputSystem.settings.defaultDeadzoneMin = controllerStickDeadZone;
         }

@@ -1,7 +1,8 @@
 using PlayerMovement;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerAnimationController : MonoBehaviour
+public class PlayerAnimationController : NetworkBehaviour
 {
     PlayerMovementController _playerMovementController;
     Animator _animator;
@@ -20,6 +21,10 @@ public class PlayerAnimationController : MonoBehaviour
     
     void FixedUpdate()
     {
+        if (!HasAuthority)
+        {
+            return;
+        }
         UpdateAnimator();
     }
     

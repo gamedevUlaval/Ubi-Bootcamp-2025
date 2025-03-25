@@ -32,7 +32,7 @@ public class ConnectionManager : MonoBehaviour
         await UnityServices.InitializeAsync();
         if (CurrentPlayer.ReadOnlyTags().Any(str=>str.Contains("INIT")))
         {
-            _sessionName = Environment.UserName;
+            _sessionName = Environment.UserName+"temp";
             _profileName = CurrentPlayer.ReadOnlyTags().First();
             await CreateOrJoinSessionAsync();
         }
