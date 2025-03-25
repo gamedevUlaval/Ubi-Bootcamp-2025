@@ -54,13 +54,18 @@ namespace PlayerMovement
 
         public Vector3 GetPlayerMovement()
         {
-            float moveSpeed = _playerInputHandler.SprintInput > 0 ? walkSpeed * 0.3f * sprintMultiplier : walkSpeed * 0.3f;
+            float moveSpeed = _playerInputHandler.IsSprinting ? walkSpeed * 0.3f * sprintMultiplier : walkSpeed * 0.3f;
             Vector3 moveDirection = new Vector3(_playerInputHandler.MoveInput.x, 0, _playerInputHandler.MoveInput.y);
             
             moveDirection.Normalize();
             moveDirection *= moveSpeed;
             
             return moveDirection;
+        }
+        
+        public bool IsSprinting()
+        {
+            return _playerInputHandler.IsSprinting;
         }
     }
 }

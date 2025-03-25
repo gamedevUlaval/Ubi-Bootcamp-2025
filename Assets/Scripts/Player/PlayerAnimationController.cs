@@ -9,6 +9,7 @@ public class PlayerAnimationController : NetworkBehaviour
     
     static readonly int VelocityZ = Animator.StringToHash("VelocityZ");
     static readonly int VelocityX = Animator.StringToHash("VelocityX");
+    static readonly int IsSprinting = Animator.StringToHash("IsSprinting");
     
     bool _isRunning = false;
     bool _isMoving = true;
@@ -31,6 +32,9 @@ public class PlayerAnimationController : NetworkBehaviour
     void UpdateAnimator()
     {
         if (!_isMoving) return;
+        
+        bool isSprinting = _playerMovementController.IsSprinting();
+        _animator.SetBool(IsSprinting, isSprinting);
         
         Vector3 moveDirection = _playerMovementController.GetPlayerMovement();
         
