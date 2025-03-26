@@ -346,6 +346,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1938837853794670, guid: 30c23f6bcd4f35648bbfc61c9f671e51, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8205698732195736965}
+    - targetCorrespondingSourceObject: {fileID: 1938837853794670, guid: 30c23f6bcd4f35648bbfc61c9f671e51, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1554647742692568006}
   m_SourcePrefab: {fileID: 100100000, guid: 30c23f6bcd4f35648bbfc61c9f671e51, type: 3}
 --- !u!95 &8388707741774358975 stripped
 Animator:
@@ -454,7 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxInteractionDistance: 5
-  angleOfDetection: 45
+  angleOfDetection: 0.5
   playerHead: {fileID: 8446112792656999473}
   interactableLayer:
     serializedVersion: 2
@@ -570,3 +573,22 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   TransitionStateInfoList: []
   m_Animator: {fileID: 8388707741774358975}
+--- !u!114 &1554647742692568006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448347799933532707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56321171f217daa4598ab4c3437f3161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxInteractionDistance: 5
+  angleOfDetection: 0.5
+  playerHead: {fileID: 8446112792656999473}
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  nearbyInteractableObjects: []
