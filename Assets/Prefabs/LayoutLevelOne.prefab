@@ -2693,122 +2693,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 967742724189493849, guid: 93fb7a13fa9203643921d509bbd31974, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1451283701533724013, guid: 93fb7a13fa9203643921d509bbd31974, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1151898662455023298}
-    - targetCorrespondingSourceObject: {fileID: 1451283701533724013, guid: 93fb7a13fa9203643921d509bbd31974, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8945970323380192551}
-    - targetCorrespondingSourceObject: {fileID: 1451283701533724013, guid: 93fb7a13fa9203643921d509bbd31974, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7908251751153704290}
-    - targetCorrespondingSourceObject: {fileID: 1451283701533724013, guid: 93fb7a13fa9203643921d509bbd31974, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2526892187665223129}
-    - targetCorrespondingSourceObject: {fileID: 1451283701533724013, guid: 93fb7a13fa9203643921d509bbd31974, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6100853172744503369}
-    - targetCorrespondingSourceObject: {fileID: 1451283701533724013, guid: 93fb7a13fa9203643921d509bbd31974, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5999115206247840072}
   m_SourcePrefab: {fileID: 100100000, guid: 93fb7a13fa9203643921d509bbd31974, type: 3}
 --- !u!1 &2059941616070164914 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1451283701533724013, guid: 93fb7a13fa9203643921d509bbd31974, type: 3}
   m_PrefabInstance: {fileID: 627582725856120031}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1151898662455023298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059941616070164914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3372326272
-  InScenePlacedSourceGlobalObjectIdHash: 3378463846
-  DeferredDespawnTick: 0
-  Ownership: 1
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
-  SyncOwnerTransformWhenParented: 1
-  AllowOwnerToParent: 0
---- !u!114 &8945970323380192551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059941616070164914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  NetworkTransformExpanded: 0
-  AuthorityMode: 0
-  TickSyncChildren: 0
-  UseUnreliableDeltas: 0
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  SwitchTransformSpaceWhenParented: 0
-  Interpolate: 1
-  SlerpPosition: 0
---- !u!54 &7908251751153704290
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059941616070164914}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &2526892187665223129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2828,44 +2725,6 @@ MonoBehaviour:
   delayBeforeFadeOut: 7
   hintText: "Cet objet est solide peut \xEAtre \xE7a pourrait servir \xE0 briser
     une vitre..."
---- !u!135 &6100853172744503369
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059941616070164914}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.23
-  m_Center: {x: -0.29, y: 0, z: 0}
---- !u!114 &5999115206247840072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059941616070164914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  NetworkRigidbodyBaseExpanded: 0
-  UseRigidBodyForMotion: 0
-  AutoUpdateKinematicState: 0
-  AutoSetKinematicOnDespawn: 1
 --- !u!4 &8446049668149700668 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9044347657669911779, guid: 93fb7a13fa9203643921d509bbd31974, type: 3}
