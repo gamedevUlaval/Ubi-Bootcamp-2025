@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6942429297643246413}
   - component: {fileID: 2290535330662065662}
-  - component: {fileID: 8681982972695109328}
   - component: {fileID: 7504805658771337465}
-  - component: {fileID: 7811951455133826887}
+  - component: {fileID: 2171994679371715258}
+  - component: {fileID: 7498053444956537775}
   m_Layer: 0
   m_Name: Mirroir
   m_TagString: Untagged
@@ -44,51 +44,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8026195483419066635}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8681982972695109328
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8026195483419066635}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: d4fb13b763f5edc4cbf529dc7e6bd145, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &7504805658771337465
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -110,7 +65,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.32494646, y: 1.2731715, z: 1}
   m_Center: {x: 0.0043444335, y: 0.03760016, z: 0}
---- !u!114 &7811951455133826887
+--- !u!114 &2171994679371715258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,9 +74,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 8026195483419066635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 232486c34fa5a61558a5f054bdb9afaa, type: 3}
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 83041596
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
+--- !u!114 &7498053444956537775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8026195483419066635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c373ec45affd84c87ccd38cc94037b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   meshRenderer: {fileID: 315646825083041193}
   baseMaterial: {fileID: 2100000, guid: 3fc2793c50badd9e3a1a003e142ad421, type: 2}
   foggyMaterial: {fileID: 2100000, guid: 1bde49c89ef47a1dea6b5bc33991b2b5, type: 2}
@@ -159,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36bcd4ed393f3e4cd812db40c5772bdf, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36bcd4ed393f3e4cd812db40c5772bdf, type: 3}
       propertyPath: m_LocalRotation.x
@@ -167,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36bcd4ed393f3e4cd812db40c5772bdf, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36bcd4ed393f3e4cd812db40c5772bdf, type: 3}
       propertyPath: m_LocalRotation.z
@@ -179,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36bcd4ed393f3e4cd812db40c5772bdf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36bcd4ed393f3e4cd812db40c5772bdf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -196,7 +177,7 @@ PrefabInstance:
     - target: {fileID: -3580546556059850566, guid: 36bcd4ed393f3e4cd812db40c5772bdf, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 3fc2793c50badd9e3a1a003e142ad421, type: 2}
+      objectReference: {fileID: 2100000, guid: 1bde49c89ef47a1dea6b5bc33991b2b5, type: 2}
     - target: {fileID: 919132149155446097, guid: 36bcd4ed393f3e4cd812db40c5772bdf, type: 3}
       propertyPath: m_Name
       value: miroir

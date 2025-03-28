@@ -7,15 +7,12 @@ public class BreakGlass : NetworkBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Breakable" && HasAuthority)
+        if (collision.gameObject.CompareTag("Breakable") && HasAuthority)
         {
             //GetComponent<AudioSource>().PlayOneShot(sound);
             glass.SetActive(false);
             brokenGlass.SetActive(true);
             collision.gameObject.GetComponent<BoxCollider>().enabled = false;
-            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();  
-            rb.isKinematic = false;
-            rb.useGravity = true;
         }
     }
 }

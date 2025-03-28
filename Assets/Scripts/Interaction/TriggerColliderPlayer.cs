@@ -33,7 +33,6 @@ public class TriggerColliderPlayer : MonoBehaviour
         if (other.CompareTag(GetTagForPlayerType()))
         {
             _interactableObject.SetPlayerNearby(true);
-            _interactableObject.ShowWhiteDot();
             PlayerInteraction.Instance.AddNearbyInteractableObject(_interactableObject);
         }
     }

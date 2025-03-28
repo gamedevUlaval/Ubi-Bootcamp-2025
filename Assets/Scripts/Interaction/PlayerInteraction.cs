@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using PlayerControls;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] float maxInteractionDistance = 5f;
-    [SerializeField] float angleOfDetection = 45f;
+    [SerializeField] float angleOfDetection = 0.5f;
     [SerializeField] Transform playerHead;
     
     [SerializeField] LayerMask interactableLayer;
@@ -52,9 +53,13 @@ public class PlayerInteraction : MonoBehaviour
     void FixedUpdate()
     {
         UpdateInteractions();
-
-        if (Input.GetKeyDown(KeyCode.F) && _currentTarget is not null)//refactor with input system
+            
+        if (PlayerInputHandler.Instance.InteractInput && _currentTarget is not null)
         {
+            _currentTarget.Interact();
+            _currentTarget.HidePrompt();
+            _currentTarget.HideWhiteDot();
+            RemoveNearbyInteractableObject(_currentTarget);
             
             _currentTarget = null;
         }
@@ -66,13 +71,12 @@ public class PlayerInteraction : MonoBehaviour
         
         foreach (var obj in nearbyInteractableObjects)
         {
-            //Debug.DrawRay(playerHead.position, obj.transform.position - playerHead.position, Color.red);
             Vector3 directionToObject = obj.transform.position - playerHead.position;
-            float angleBetweenVisionAndObjectDirection = Vector3.Angle(playerHead.forward, directionToObject.normalized);
+            float angleBetweenVisionAndObjectDirection = Vector3.Dot(playerHead.forward, directionToObject.normalized);
             
-            if (angleBetweenVisionAndObjectDirection < angleOfDetection)
+            if (angleBetweenVisionAndObjectDirection > angleOfDetection)
             {
-                bool isLookingDirectly  = IsLookingDirectlyAt(obj);
+                bool isLookingDirectly = IsLookingDirectlyAt(obj);
                 
                 if (isLookingDirectly)
                 {
@@ -83,16 +87,19 @@ public class PlayerInteraction : MonoBehaviour
                         _currentTarget.ShowPrompt();
                     }
                     
+                    //print("looking directly");
                     obj.HideWhiteDot();
                     foundTarget = true;
                 }
                 else
                 {
+                    //print("not looking directly");
                     obj.ShowWhiteDot();
                 }
             }
             else
             {
+                //print("not looking in direction");
                 obj.HideWhiteDot();
             }
         }
@@ -105,10 +112,12 @@ public class PlayerInteraction : MonoBehaviour
     
     bool IsLookingDirectlyAt(InteractableObject obj)
     {
-        Ray ray = new Ray(playerHead.position, obj.transform.position - playerHead.position);
+        Debug.DrawRay(playerHead.position, playerHead.forward * maxInteractionDistance, Color.green);
+        
+        Ray ray = new Ray(playerHead.position, playerHead.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, maxInteractionDistance, interactableLayer))
         {
-            return hit.collider.gameObject == obj.gameObject;
+            return hit.collider.gameObject == obj.transform.parent.gameObject;
         }
         
         return false;

@@ -12,13 +12,34 @@ public class InteractableObject : MonoBehaviour
     [SerializeField] TMP_Text itemNameText;
     [SerializeField] TMP_Text actionText;
     
+    IInteractable interactable;
+    
     bool _isPlayerNearby = false;
     public bool IsPlayerNearby => _isPlayerNearby;
+    
+    void Awake()
+    {
+        if (transform.parent == null || transform.parent.GetComponent<IInteractable>() == null)
+        {
+            Debug.LogError("Parents gameobject of : " + gameObject.name + " must have a component that implements IInteractable interface");
+        }
+    }
     
     void Start()
     {
         SetCanvasState(whiteDotCanvas, false);
         //SetCanvasState(promptCanvas, false);
+        interactable = GetComponentInParent<IInteractable>();
+    }
+    
+    public void Interact()
+    {
+        interactable.Interact();
+    }
+    
+    public bool InteractWith(GameObject tryToInteractWith)
+    {
+        return interactable.InteractWith(tryToInteractWith);
     }
 
     void SetCanvasState(Canvas canvas, bool state)

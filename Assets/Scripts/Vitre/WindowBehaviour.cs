@@ -5,7 +5,8 @@ using Unity.Netcode;
 public class WindowBehaviour : NetworkBehaviour
 {
     private bool isBroken = false;
-    Rigidbody rb;
+    public GameObject glass;
+    public GameObject brokenGlass;
 
 
     private void OnCollisionEnter(Collision other)
@@ -19,16 +20,13 @@ public class WindowBehaviour : NetworkBehaviour
     {
         //verify if it is already broken
         if (isBroken) return;
-
-
-        if (HasAuthority) // if it is the owner
-        {
-            DestroyWindow();
-        }
+        
+        DestroyWindowRpc();
     }
-    private void DestroyWindow()
+    [Rpc(SendTo.Everyone)]
+    private void DestroyWindowRpc()
     {
-        Debug.Log("Vitre Brisée");
-        GetComponent<NetworkObject>().Despawn(true); //Destroys object for all clients
+        glass.SetActive(false);
+        brokenGlass.SetActive(true);
     }
 }
