@@ -96,6 +96,10 @@ namespace PlayerControls
         
         void OnEnable()
         {
+            if (moveAction == null)
+            {
+                return;
+            }
             moveAction.Enable();
             lookAction.Enable();
             sprintAction.Enable();
@@ -106,6 +110,10 @@ namespace PlayerControls
         
         void OnDisable()
         {
+            if (moveAction == null)
+            {
+                return;
+            }
             moveAction.Disable();
             lookAction.Disable();
             sprintAction.Disable();

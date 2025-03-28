@@ -22,7 +22,7 @@ public class PlayerInteraction : MonoBehaviour
     
     public void AddNearbyInteractableObject(InteractableObject interactableObject)
     {
-        if (!nearbyInteractableObjects.Contains(interactableObject) && CompareTag(interactableObject.gameObject.tag))
+        if (!nearbyInteractableObjects.Contains(interactableObject))
         {
             nearbyInteractableObjects.Add(interactableObject);
         }
