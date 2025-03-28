@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.Netcode;
 using UnityEngine;
 
-public class MirrorInteraction : MonoBehaviour, IInteractable
+public class MirrorInteraction : NetworkBehaviour, IInteractable
 {
     public MeshRenderer meshRenderer;
     public Material baseMaterial;
@@ -16,13 +18,18 @@ public class MirrorInteraction : MonoBehaviour, IInteractable
     [ContextMenu("Fog up mirror")]
     public void Interact()
     {
-        meshRenderer.SetMaterials(new List<Material> { foggyMaterial});
+        InteractionRpc();
     }
     
     public bool InteractWith(GameObject tryToInteractWith)
     {
         Debug.Log("Should not interact with something in hand");
         return false;
+    }
+    [Rpc(SendTo.Everyone)]
+    private void InteractionRpc()
+    {
+        meshRenderer.SetMaterials(new List<Material> { foggyMaterial});
     }
     
     public InteractableType InteractableType => InteractableType.Static;

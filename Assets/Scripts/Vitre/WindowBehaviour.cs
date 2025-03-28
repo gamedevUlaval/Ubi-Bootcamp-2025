@@ -2,7 +2,7 @@ using UnityEngine;
 using Unity.Netcode;
 
 
-public class WindowBehaviour : MonoBehaviour
+public class WindowBehaviour : NetworkBehaviour
 {
     private bool isBroken = false;
     public GameObject glass;
@@ -21,9 +21,10 @@ public class WindowBehaviour : MonoBehaviour
         //verify if it is already broken
         if (isBroken) return;
         
-        DestroyWindow();
+        DestroyWindowRpc();
     }
-    private void DestroyWindow()
+    [Rpc(SendTo.Everyone)]
+    private void DestroyWindowRpc()
     {
         glass.SetActive(false);
         brokenGlass.SetActive(true);
