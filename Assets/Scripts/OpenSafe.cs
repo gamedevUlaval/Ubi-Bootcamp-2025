@@ -3,14 +3,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class OpenSafe : MonoBehaviour
+
+public class OpenSafe : MonoBehaviour 
 {
     [SerializeField] private TextMeshProUGUI codeText;
     [SerializeField] private AudioClip beepSound;
     [SerializeField] private AudioClip successSound;
     [SerializeField] private AudioClip wrongSound;
+    [SerializeField] private PlayerInputHandler playerControls;
 
-    private PlayerInputHandler playerControls;
+    [SerializeField] private WindowBehaviour window;
     private string codeTextValue = "";
     public string safeCode;
     public GameObject codePannel;
@@ -18,28 +20,19 @@ public class OpenSafe : MonoBehaviour
     public bool HaveKey = false;
     private bool isInReach = false;
 
-
-    private void OnEnable()
-    {
-        playerControls = new PlayerInputHandler();
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
         codeText.text = codeTextValue;
-
-        if (isInReach && codeTextValue != safeCode)
+        
+        if (isInReach && codeTextValue != safeCode && window.isBroken)
         {
-            codePannel.SetActive(true);
+            if (playerControls.InteractInput)
+            {
+                codePannel.SetActive(true);
+            }
         }
-        else if (isInReach && codeTextValue == safeCode)
+        else if (isInReach && codeTextValue == safeCode) 
         {
             HaveKey = true;
             codePannel.SetActive(false);
@@ -53,17 +46,11 @@ public class OpenSafe : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Human" && !isInReach)
         {
             Debug.Log("Okay");
-            if (playerControls.InteractInput)
-            {
-                isInReach = true;
-            }
-        }
-        else
-        {
-            isInReach = false;
+            playerControls = other.gameObject.GetComponent<PlayerInputHandler>();
+            isInReach = true;
         }
     }
 

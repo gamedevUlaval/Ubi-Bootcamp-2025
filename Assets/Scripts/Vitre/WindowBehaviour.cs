@@ -4,7 +4,7 @@ using Unity.Netcode;
 
 public class WindowBehaviour : NetworkBehaviour
 {
-    private bool isBroken = false;
+    public bool isBroken = false;
     public GameObject glass;
     public GameObject brokenGlass;
 
@@ -14,13 +14,13 @@ public class WindowBehaviour : NetworkBehaviour
         if (other.gameObject.CompareTag("BriseVitre"))
         {
             BreakWindow();
+            
         }
     }
     public void BreakWindow()
     {
         //verify if it is already broken
         if (isBroken) return;
-        
         DestroyWindowRpc();
     }
     [Rpc(SendTo.Everyone)]
@@ -28,5 +28,6 @@ public class WindowBehaviour : NetworkBehaviour
     {
         glass.SetActive(false);
         brokenGlass.SetActive(true);
+        isBroken = true;
     }
 }
