@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -26,6 +24,7 @@ public class MirrorInteraction : NetworkBehaviour, IInteractable
         Debug.Log("Should not interact with something in hand");
         return false;
     }
+    
     [Rpc(SendTo.Everyone)]
     private void InteractionRpc()
     {
