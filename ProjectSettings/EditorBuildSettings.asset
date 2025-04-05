@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InteractionMainScene.unity
     guid: a4a0e6512bd9fffee8bf48effaf5c043
+  - enabled: 1
+    path: Assets/Scenes/LightningLevel.unity
+    guid: 26f6553437782e4ea93ed135e636f6d4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
