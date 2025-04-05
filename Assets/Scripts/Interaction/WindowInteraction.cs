@@ -54,5 +54,5 @@ public class WindowInteraction : NetworkBehaviour, IInteractable
         throw new System.NotImplementedException();
     }
 
-    public InteractableType InteractableType => InteractableType.Static;
+    public InteractableType InteractableType => InteractableType.Cooldown;
 }

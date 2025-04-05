@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using PlayerControls;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerInteraction : MonoBehaviour
+public class PlayerInteraction : NetworkBehaviour
 {
     [SerializeField] float maxInteractionDistance = 5f;
     [SerializeField] float angleOfDetection = 0.5f;
@@ -52,11 +53,20 @@ public class PlayerInteraction : MonoBehaviour
 
     void FixedUpdate()
     {
+        // if (!HasAuthority)
+        //     return;
+        
         UpdateInteractions();
             
         if (PlayerInputHandler.Instance.InteractInput && _currentTarget is not null)
         {
+            //Debug.Log("Trigger interaction");
             _currentTarget.Interact();
+            if (_currentTarget.GetInteractableType() == InteractableType.Cooldown)
+            {
+                Debug.Log("We want to keep a reference to that object");
+                return;
+            }
             _currentTarget.HidePrompt();
             _currentTarget.HideWhiteDot();
             RemoveNearbyInteractableObject(_currentTarget);
@@ -73,12 +83,14 @@ public class PlayerInteraction : MonoBehaviour
         {
             Vector3 directionToObject = obj.transform.position - playerHead.position;
             float angleBetweenVisionAndObjectDirection = Vector3.Dot(playerHead.forward, directionToObject.normalized);
-            
-            if (angleBetweenVisionAndObjectDirection > angleOfDetection)
+            Debug.DrawRay(playerHead.position, directionToObject, Color.red);
+            float distance = (obj.transform.position - transform.position).magnitude;
+            Debug.Log(distance);
+            if (angleBetweenVisionAndObjectDirection > angleOfDetection || distance < maxInteractionDistance)
             {
                 bool isLookingDirectly = IsLookingDirectlyAt(obj);
                 
-                if (isLookingDirectly)
+                if (isLookingDirectly || distance < maxInteractionDistance)
                 {
                     if (_currentTarget != obj)
                     {
@@ -87,19 +99,19 @@ public class PlayerInteraction : MonoBehaviour
                         _currentTarget.ShowPrompt();
                     }
                     
-                    //print("looking directly");
-                    obj.HideWhiteDot();
+                    Debug.Log("looking directly");
+                    obj.ShowWhiteDot();
                     foundTarget = true;
                 }
                 else
                 {
-                    //print("not looking directly");
+                    Debug.Log("not looking directly");
                     obj.ShowWhiteDot();
                 }
             }
             else
             {
-                //print("not looking in direction");
+                Debug.Log("not looking in direction");
                 obj.HideWhiteDot();
             }
         }

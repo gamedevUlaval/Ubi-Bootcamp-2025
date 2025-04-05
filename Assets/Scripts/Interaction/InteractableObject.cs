@@ -36,6 +36,11 @@ public class InteractableObject : MonoBehaviour
     {
         interactable.Interact();
     }
+
+    public InteractableType GetInteractableType()
+    {
+        return interactable.InteractableType;
+    }
     
     public bool InteractWith(GameObject tryToInteractWith)
     {
