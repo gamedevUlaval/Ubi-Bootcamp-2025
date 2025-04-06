@@ -2,18 +2,35 @@ using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
-public class LightLamps : NetworkBehaviour
+public class LightLamps : NetworkBehaviour, IInteractable
 {
     [SerializeField] private float delay = 10.0f;
     [SerializeField] private GameObject[] lamps;
+    private bool isPlaying = false;
 
-    private void Start()
+    public InteractableType InteractableType => InteractableType.Cooldown;
+
+    public void Interact()
     {
-        StartCoroutine(StartSequence());
+        StartSequenceRpc();
     }
 
-    IEnumerator StartSequence()
+    public bool InteractWith(GameObject tryToInteractWith)
     {
+        throw new System.NotImplementedException();
+    }
+    [Rpc(SendTo.Everyone, RequireOwnership = false)]
+    public void StartSequenceRpc()
+    {
+        if (!isPlaying)
+        {
+            StartCoroutine(ShowSequence());
+        }
+    }
+
+    IEnumerator ShowSequence()
+    {
+        isPlaying = true;
         for (int i = 0; i < lamps.Length; i++)
         {
             Renderer _renderer = lamps[i].GetComponent<Renderer>();
@@ -22,5 +39,6 @@ public class LightLamps : NetworkBehaviour
             yield return new WaitForSeconds(delay);
             _renderer.material.SetColor("_BaseColor", defaultcolor);
         }
+        isPlaying = false;
     }
 }
