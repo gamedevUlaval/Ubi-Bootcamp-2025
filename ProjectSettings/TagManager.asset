@@ -7,6 +7,8 @@ TagManager:
   - BriseVitre
   - Human
   - Ghost
+  - Breakable
+  - Pushable
   layers:
   - Default
   - TransparentFX
