@@ -22,7 +22,7 @@ public class GrabController : NetworkBehaviour
         if (playerControls == null) return;
         if (currentGrabbable == null) return;
 
-        if (Input.GetKeyDown(KeyCode.E) && Time.time - lastGrabTime > grabCooldown)
+        if (playerControls.InteractInput && Time.time - lastGrabTime > grabCooldown)
         {
             if (heldObject == null)
                 Grab();
