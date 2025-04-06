@@ -32,8 +32,8 @@ public class ConnectionManager : MonoBehaviour
         await UnityServices.InitializeAsync();
         if (CurrentPlayer.ReadOnlyTags().Any(str=>str.Contains("INIT")))
         {
-            _sessionName = Environment.UserName+"temp2";
-            _profileName = CurrentPlayer.ReadOnlyTags().First();
+            _sessionName = Environment.UserName+System.DateTime.Now.ToString("HHmm");
+            _profileName = Environment.UserName+System.DateTime.Now.ToString("HHmm")+CurrentPlayer.ReadOnlyTags().First();
             await CreateOrJoinSessionAsync();
         }
     }
@@ -42,7 +42,7 @@ public class ConnectionManager : MonoBehaviour
     {
         if (m_NetworkManager.LocalClient.IsSessionOwner)
         {
-            Debug.Log($"Client-{m_NetworkManager.LocalClientId} is the session owner!");
+            Debug.Log($"I, Client-{m_NetworkManager.LocalClientId}, am the session owner!");
         }
     }
 
@@ -50,7 +50,11 @@ public class ConnectionManager : MonoBehaviour
     {
         if (m_NetworkManager.LocalClientId == clientId)
         {
-            Debug.Log($"Client-{clientId} is connected and can spawn {nameof(NetworkObject)}s.");
+            Debug.Log($"This Client-{clientId} is connected and can spawn {nameof(NetworkObject)}s.");
+        }
+        else
+        {
+            Debug.Log($"Other client-{clientId} is connected and can spawn {nameof(NetworkObject)}s.");
         }
     }
 
@@ -92,15 +96,20 @@ public class ConnectionManager : MonoBehaviour
 
        try
        {
+           // if (AuthenticationService.Instance.IsSignedIn)
+           // {
+           //     AuthenticationService.Instance.SignOut();
+           // }
            AuthenticationService.Instance.SwitchProfile(_profileName);
            await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
-            var options = new SessionOptions() {
-                Name = _sessionName,
-                MaxPlayers = _maxPlayers
-            }.WithDistributedAuthorityNetwork();
+           var options = new SessionOptions()
+           {
+               Name = _sessionName,
+               MaxPlayers = _maxPlayers
+           }.WithDistributedAuthorityNetwork();
 
-            _session = await MultiplayerService.Instance.CreateOrJoinSessionAsync(_sessionName, options);
+           _session = await MultiplayerService.Instance.CreateOrJoinSessionAsync(_sessionName, options);
 
            _state = ConnectionState.Connected;
        }

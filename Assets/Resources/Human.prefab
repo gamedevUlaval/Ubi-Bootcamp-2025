@@ -445,7 +445,7 @@ MonoBehaviour:
   GlobalObjectIdHash: 1315215881
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
-  Ownership: 0
+  Ownership: 3
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -498,6 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56321171f217daa4598ab4c3437f3161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   maxInteractionDistance: 5
   angleOfDetection: 0.5
   playerHead: {fileID: 8446112792656999473}

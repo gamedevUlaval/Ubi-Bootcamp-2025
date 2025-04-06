@@ -1,10 +1,11 @@
 using PlayerControls;
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class OpenSafe : MonoBehaviour 
+public class OpenSafe : NetworkBehaviour, IInteractable 
 {
     [SerializeField] private TextMeshProUGUI codeText;
     [SerializeField] private AudioClip beepSound;
@@ -17,7 +18,6 @@ public class OpenSafe : MonoBehaviour
     public string safeCode;
     public GameObject codePannel;
     public GameObject UIKey;
-    public bool HaveKey = false;
     private bool isInReach = false;
 
     // Update is called once per frame
@@ -34,14 +34,19 @@ public class OpenSafe : MonoBehaviour
         }
         else if (isInReach && codeTextValue == safeCode) 
         {
-            HaveKey = true;
             codePannel.SetActive(false);
-            UIKey.SetActive(true);
+            AddKeyRPC();
         }
         else
         {
             codePannel.SetActive(false);
         }
+    }
+
+    [Rpc(SendTo.Everyone)]
+    private void AddKeyRPC()
+    {
+        UIKey.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -82,4 +87,22 @@ public class OpenSafe : MonoBehaviour
             codeTextValue += digit;
         }
     }
+
+    public void Interact()
+    {
+        if (isInReach && window.isBroken)
+        {
+            if (playerControls.InteractInput)
+            {
+                codePannel.SetActive(true);
+            }
+        }
+    }
+
+    public bool InteractWith(GameObject tryToInteractWith)
+    {
+        return false;
+    }
+
+    public InteractableType InteractableType => InteractableType.Static;
 }

@@ -10,5 +10,6 @@ public interface IInteractable
 public enum InteractableType
 {
     Pickable,
-    Static
+    Static,
+    Cooldown,
 }

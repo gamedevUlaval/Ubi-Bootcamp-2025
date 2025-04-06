@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ae3a14463d8fa4be186b44df9edebf20, type: 3}
       propertyPath: m_Name
-      value: boy_rig
+      value: HumanPlayer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -75,6 +75,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ae3a14463d8fa4be186b44df9edebf20, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1562037156683577596}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ae3a14463d8fa4be186b44df9edebf20, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9204709333948463223}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ae3a14463d8fa4be186b44df9edebf20, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2377456387577597599}
@@ -90,9 +93,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ae3a14463d8fa4be186b44df9edebf20, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7457915152267181440}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ae3a14463d8fa4be186b44df9edebf20, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9204709333948463223}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ae3a14463d8fa4be186b44df9edebf20, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5146753112535440063}
@@ -130,6 +130,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9204709333948463223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8442583950327097497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 600262596
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &2377456387577597599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7153edb7157cf4ba3fa5481ffa4237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
 --- !u!114 &296358044252187253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6fb2af44551b74c844dfc7288f8d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   playerControls: {fileID: -944628639613478452, guid: 9bbac45c130b4f949a2deb6ca399c502, type: 3}
   controllerStickDeadZone: 0.125
 --- !u!114 &7100213147777291205
@@ -168,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36fdda3a5f0916478972c505eb396df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   walkSpeed: 1
   sprintMultiplier: 1.5
   aimLayerMask:
@@ -223,31 +251,6 @@ CapsuleCollider:
   m_Height: 6.35
   m_Direction: 1
   m_Center: {x: 0, y: 3.175, z: 0}
---- !u!114 &9204709333948463223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8442583950327097497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4167923869
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  DeferredDespawnTick: 0
-  Ownership: 1
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
-  SyncOwnerTransformWhenParented: 1
-  AllowOwnerToParent: 0
 --- !u!114 &5146753112535440063
 MonoBehaviour:
   m_ObjectHideFlags: 0
