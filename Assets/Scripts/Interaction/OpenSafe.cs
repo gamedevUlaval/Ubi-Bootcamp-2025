@@ -1,9 +1,9 @@
+using System;
+using System.Collections;
 using PlayerControls;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
 
 public class OpenSafe : NetworkBehaviour, IInteractable 
 {
@@ -11,16 +11,21 @@ public class OpenSafe : NetworkBehaviour, IInteractable
     [SerializeField] private AudioClip beepSound;
     [SerializeField] private AudioClip successSound;
     [SerializeField] private AudioClip wrongSound;
-    [SerializeField] private PlayerInputHandler playerControls;
+    PlayerInputHandler playerControls;
 
     [SerializeField] private WindowBehaviour window;
     private string codeTextValue = "";
-    public string safeCode;
-    public GameObject codePannel;
-    public GameObject UIKey;
-    private bool isInReach = false;
+    [SerializeField] string safeCode;
+    [SerializeField] GameObject codePanel;
+    [SerializeField] GameObject UIKey;
+    private bool codePanelOpen = false;
 
-    // Update is called once per frame
+    void Start()
+    {
+        playerControls = PlayerInputHandler.Instance;
+    }
+
+    /*// Update is called once per frame
     void Update()
     {
         codeText.text = codeTextValue;
@@ -41,7 +46,7 @@ public class OpenSafe : NetworkBehaviour, IInteractable
         {
             codePannel.SetActive(false);
         }
-    }
+    }*/
 
     [Rpc(SendTo.Everyone)]
     private void AddKeyRPC()
@@ -49,20 +54,19 @@ public class OpenSafe : NetworkBehaviour, IInteractable
         UIKey.SetActive(true);
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Human" && !isInReach)
         {
-            Debug.Log("Okay");
             playerControls = other.gameObject.GetComponent<PlayerInputHandler>();
             isInReach = true;
         }
-    }
+    }*/
 
-    private void OnTriggerExit(Collider other)
+    /*private void OnTriggerExit(Collider other)
     {
         isInReach = false;
-    }
+    }*/
 
     public void AddDigit(string digit)
     {
@@ -73,7 +77,7 @@ public class OpenSafe : NetworkBehaviour, IInteractable
             if (codeTextValue == safeCode)
             {
                 GetComponent<AudioSource>().PlayOneShot(successSound);
-                codePannel.SetActive(false);
+                codePanel.SetActive(false);
             }
             else
             {
@@ -90,12 +94,38 @@ public class OpenSafe : NetworkBehaviour, IInteractable
 
     public void Interact()
     {
-        if (isInReach && window.isBroken)
+        /*if (isInReach && window.isBroken)
         {
             if (playerControls.InteractInput)
             {
                 codePannel.SetActive(true);
             }
+        }*/
+        codePanel.SetActive(true);
+        codePanelOpen = true;
+
+        StartCoroutine(CloseCodePanelOnPlayerMovement());
+    }
+
+    IEnumerator CloseCodePanelOnPlayerMovement()
+    {
+        while (codePanelOpen)
+        {
+            if (codeTextValue == safeCode)
+            {
+                AddKeyRPC();
+                codePanel.SetActive(false);
+                codePanelOpen = false;
+            }
+            
+            if (playerControls.MoveInput.magnitude > 0.001f)
+            {
+                yield return new WaitForSeconds(0.5f);
+                codePanel.SetActive(false);
+                codePanelOpen = false;
+            }
+            
+            yield return null;
         }
     }
 

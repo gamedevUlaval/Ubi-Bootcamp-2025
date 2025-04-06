@@ -13,6 +13,7 @@ public class DoorInteraction : NetworkBehaviour, IInteractable
             OpenDoorRpc();
         }
     }
+    
     [Rpc(SendTo.Everyone)]
     private void OpenDoorRpc()
     {
