@@ -49,8 +49,7 @@ public class PuzzleValidator : NetworkBehaviour
     [Rpc(SendTo.Everyone, RequireOwnership = false)]
     public void OpenDoorRpc()
     {
-        //void OpenTheDoor Client
-        doorBehaviour.OpenDoor();
+        KeyManager.Instance.AddKey(2);
     }
     
 }

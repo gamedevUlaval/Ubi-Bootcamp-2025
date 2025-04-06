@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class SafeWithoutCombinationInteraction : NetworkBehaviour, IInteractable
 {
-    public GameObject UIKey;
     
     [ContextMenu("Open chest")]
     public void Interact()
@@ -19,7 +18,7 @@ public class SafeWithoutCombinationInteraction : NetworkBehaviour, IInteractable
     [Rpc(SendTo.Everyone, RequireOwnership = false)]
     private void AddKeyRPC()
     {
-        UIKey.SetActive(true);
+        KeyManager.Instance.AddKey(3);
     }
 
     public InteractableType InteractableType => InteractableType.Static;
