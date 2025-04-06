@@ -14,7 +14,6 @@ public class WindowBehaviour : NetworkBehaviour
         if (other.gameObject.CompareTag("BriseVitre"))
         {
             BreakWindow();
-            
         }
     }
     public void BreakWindow()
@@ -23,6 +22,7 @@ public class WindowBehaviour : NetworkBehaviour
         if (isBroken) return;
         DestroyWindowRpc();
     }
+    
     [Rpc(SendTo.Everyone)]
     private void DestroyWindowRpc()
     {

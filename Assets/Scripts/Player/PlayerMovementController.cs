@@ -6,7 +6,7 @@ namespace PlayerMovement
 {
     public class PlayerMovementController : NetworkBehaviour
     {
-        [SerializeField] float walkSpeed = 1f;
+        [SerializeField] float walkSpeed = 0.3f;
         [SerializeField] float sprintMultiplier = 1.5f;
         [SerializeField] LayerMask aimLayerMask;
         
