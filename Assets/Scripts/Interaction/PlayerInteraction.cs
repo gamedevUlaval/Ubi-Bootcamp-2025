@@ -13,18 +13,15 @@ public class PlayerInteraction : NetworkBehaviour
     
     [SerializeField] List<InteractableObject> nearbyInteractableObjects = new List<InteractableObject>();
     InteractableObject _currentTarget = null;
-
-    public static PlayerInteraction Instance;
-    
-    void Awake()
-    {
-        Instance = this;
-    }
     
     public void AddNearbyInteractableObject(InteractableObject interactableObject)
     {
         if (!nearbyInteractableObjects.Contains(interactableObject))
         {
+            if (!HasAuthority)
+            {
+                return;
+            }
             nearbyInteractableObjects.Add(interactableObject);
         }
     }
@@ -64,7 +61,6 @@ public class PlayerInteraction : NetworkBehaviour
             _currentTarget.Interact();
             if (_currentTarget.GetInteractableType() == InteractableType.Cooldown)
             {
-                Debug.Log("We want to keep a reference to that object");
                 return;
             }
             _currentTarget.HidePrompt();
@@ -84,13 +80,13 @@ public class PlayerInteraction : NetworkBehaviour
             Vector3 directionToObject = obj.transform.position - playerHead.position;
             float angleBetweenVisionAndObjectDirection = Vector3.Dot(playerHead.forward, directionToObject.normalized);
             Debug.DrawRay(playerHead.position, directionToObject, Color.red);
-            float distance = (obj.transform.position - transform.position).magnitude;
-            Debug.Log(distance);
-            if (angleBetweenVisionAndObjectDirection > angleOfDetection || distance < maxInteractionDistance)
+            float newDistance = (obj.transform.position - transform.position).magnitude;
+            //Debug.Log(newDistance);
+            if (angleBetweenVisionAndObjectDirection > angleOfDetection || newDistance < maxInteractionDistance)
             {
                 bool isLookingDirectly = IsLookingDirectlyAt(obj);
                 
-                if (isLookingDirectly || distance < maxInteractionDistance)
+                if (isLookingDirectly || newDistance < maxInteractionDistance)
                 {
                     if (_currentTarget != obj)
                     {
@@ -99,19 +95,19 @@ public class PlayerInteraction : NetworkBehaviour
                         _currentTarget.ShowPrompt();
                     }
                     
-                    Debug.Log("looking directly");
+                    //Debug.Log("looking directly");
                     obj.ShowWhiteDot();
                     foundTarget = true;
                 }
                 else
                 {
-                    Debug.Log("not looking directly");
+                    //Debug.Log("not looking directly");
                     obj.ShowWhiteDot();
                 }
             }
             else
             {
-                Debug.Log("not looking in direction");
+                //Debug.Log("not looking in direction");
                 obj.HideWhiteDot();
             }
         }

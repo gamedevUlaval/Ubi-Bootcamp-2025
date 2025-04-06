@@ -16,7 +16,7 @@ public class SafeWithoutCombinationInteraction : NetworkBehaviour, IInteractable
         throw new System.NotImplementedException();
     }
     
-    [Rpc(SendTo.Everyone)]
+    [Rpc(SendTo.Everyone, RequireOwnership = false)]
     private void AddKeyRPC()
     {
         UIKey.SetActive(true);

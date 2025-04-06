@@ -17,6 +17,8 @@ public class WindowInteraction : NetworkBehaviour, IInteractable
 
     void Update()
     {
+        if (!HasAuthority)
+            return;
         timer -= Time.deltaTime;
         cooldown -= Time.deltaTime;
         if (timer <= 0)
@@ -40,13 +42,10 @@ public class WindowInteraction : NetworkBehaviour, IInteractable
             cooldown = cooldownTime;
         }
     }
-    
+
     private void PlayAnimation()
     {
-        if (HasAuthority)
-        {
-            lightningAnimation.Play("Lightning");
-        }
+        lightningAnimation.Play("Lightning");
     }
 
     public bool InteractWith(GameObject tryToInteractWith)
