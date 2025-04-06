@@ -9,6 +9,7 @@ TagManager:
   - Ghost
   - Breakable
   - Pushable
+  - Grabbable
   layers:
   - Default
   - TransparentFX
