@@ -30,20 +30,22 @@ public class TriggerColliderPlayer : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(GetTagForPlayerType()))
+        PlayerInteraction playerInteraction = other.GetComponent<PlayerInteraction>();
+        if (other.CompareTag(GetTagForPlayerType()) && playerInteraction != null)
         {
             _interactableObject.SetPlayerNearby(true);
-            PlayerInteraction.Instance.AddNearbyInteractableObject(_interactableObject);
+            playerInteraction.AddNearbyInteractableObject(_interactableObject);
         }
     }
     
     void OnTriggerExit(Collider other)
     {
+        PlayerInteraction playerInteraction = other.GetComponent<PlayerInteraction>();
         if (other.CompareTag(GetTagForPlayerType()))
         {
             _interactableObject.SetPlayerNearby(false);
             _interactableObject.HideWhiteDot();
-            PlayerInteraction.Instance.RemoveNearbyInteractableObject(_interactableObject);
+            playerInteraction.RemoveNearbyInteractableObject(_interactableObject);
         }
     }
     

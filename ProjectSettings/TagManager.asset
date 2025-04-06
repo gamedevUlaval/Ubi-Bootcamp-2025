@@ -8,6 +8,7 @@ TagManager:
   - Human
   - Ghost
   - Breakable
+  - Grabbable
   layers:
   - Default
   - TransparentFX
