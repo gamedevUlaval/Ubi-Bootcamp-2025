@@ -19,54 +19,13 @@ public class OpenSafe : NetworkBehaviour, IInteractable
     [SerializeField] GameObject codePanel;
     [SerializeField] GameObject UIKey;
     private bool codePanelOpen = false;
-
-    void Start()
-    {
-        playerControls = PlayerInputHandler.Instance;
-    }
-
-    /*// Update is called once per frame
-    void Update()
-    {
-        codeText.text = codeTextValue;
-        
-        if (isInReach && codeTextValue != safeCode && window.isBroken)
-        {
-            if (playerControls.InteractInput)
-            {
-                codePannel.SetActive(true);
-            }
-        }
-        else if (isInReach && codeTextValue == safeCode) 
-        {
-            codePannel.SetActive(false);
-            AddKeyRPC();
-        }
-        else
-        {
-            codePannel.SetActive(false);
-        }
-    }*/
+    
 
     [Rpc(SendTo.Everyone)]
     private void AddKeyRPC()
     {
         UIKey.SetActive(true);
     }
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Human" && !isInReach)
-        {
-            playerControls = other.gameObject.GetComponent<PlayerInputHandler>();
-            isInReach = true;
-        }
-    }*/
-
-    /*private void OnTriggerExit(Collider other)
-    {
-        isInReach = false;
-    }*/
 
     public void AddDigit(string digit)
     {
@@ -94,16 +53,14 @@ public class OpenSafe : NetworkBehaviour, IInteractable
 
     public void Interact()
     {
-        /*if (isInReach && window.isBroken)
+        playerControls = PlayerInputHandler.Instance;
+        
+        if (window.isBroken)
         {
-            if (playerControls.InteractInput)
-            {
-                codePannel.SetActive(true);
-            }
-        }*/
-        codePanel.SetActive(true);
-        codePanelOpen = true;
-
+            codePanel.SetActive(true);
+            codePanelOpen = true;
+        }
+        
         StartCoroutine(CloseCodePanelOnPlayerMovement());
     }
 
@@ -120,7 +77,7 @@ public class OpenSafe : NetworkBehaviour, IInteractable
             
             if (playerControls.MoveInput.magnitude > 0.001f)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.2f);
                 codePanel.SetActive(false);
                 codePanelOpen = false;
             }
