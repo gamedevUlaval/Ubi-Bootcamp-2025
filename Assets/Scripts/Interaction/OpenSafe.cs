@@ -35,18 +35,18 @@ public class OpenSafe : NetworkBehaviour, IInteractable
 
             if (codeTextValue == safeCode)
             {
-                GetComponent<AudioSource>().PlayOneShot(successSound);
+                StartCoroutine(SoundSuccessRoutineRPC());
                 codePanel.SetActive(false);
             }
             else
             {
-                GetComponent<AudioSource>().PlayOneShot(wrongSound);
+                SoundManager.Instance.PlaySFX(wrongSound);
                 codeTextValue = "";
             }
         }
         else
         {
-            GetComponent<AudioSource>().PlayOneShot(beepSound);
+            SoundManager.Instance.PlaySFX(beepSound);
             codeTextValue += digit;
         }
     }
@@ -84,6 +84,36 @@ public class OpenSafe : NetworkBehaviour, IInteractable
             
             yield return null;
         }
+    }
+
+    IEnumerator SoundSuccessRoutineRPC()
+    {
+        AudioSource musicSource = SoundManager.Instance.musicSource;
+
+        // FADE OUT musique (sur 1s)
+        float fadeOutTime = 2f;
+        for (float t = 0; t < fadeOutTime; t += Time.deltaTime)
+        {
+            musicSource.volume = Mathf.Lerp(musicSource.volume, 0f, t / fadeOutTime);
+            yield return null;
+        }
+        musicSource.volume = 0f;
+
+        // Joue le SFX de succès
+        SoundManager.Instance.PlaySFX(successSound);
+
+        // Attends la durée du SFX ou une durée fixe (ici 4s)
+        yield return new WaitForSeconds(9.5f);
+
+        // FADE IN musique (sur 3s)
+        float fadeInTime = 3f;
+        for (float t = 0; t < fadeInTime; t += Time.deltaTime)
+        {
+            musicSource.volume = Mathf.Lerp(0f, 1f, t / fadeInTime);
+            yield return null;
+        }
+        musicSource.volume = 1f;
+
     }
 
     public bool InteractWith(GameObject tryToInteractWith)
