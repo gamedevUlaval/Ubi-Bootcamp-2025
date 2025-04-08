@@ -6,17 +6,15 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance;
 
     [Header("Audio Sources")]
-    public AudioSource musicSource;   // Assigné au groupe "Musics"
-    public AudioSource sfxSource;     // Assigné au groupe "SoundEffects"
-    public AudioSource menuSource;    // Assigné au groupe "Menus"
-    [SerializeField] private AudioSource footstepsSource;
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
 
     [Header("Audio Clips")]
-    public AudioClip mainTheme; // Musique du menu ou du début de jeu
-    [SerializeField] private AudioClip[] woodFootsteps;      //Pas de l'humain sur bois
+    public AudioClip mainTheme; // Exemple de musique d'ambiance
 
     private void Awake()
     {
+        // Singleton Pattern
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -35,51 +33,26 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Joue une musique en boucle via le canal musique.
-    /// </summary>
-    public void PlayMusic(AudioClip clip, bool loop = true)
+    public void PlaySFX(AudioClip clip)
     {
-        if (clip == null) return;
-
-        musicSource.clip = clip;
-        musicSource.loop = loop;
-        musicSource.Play();
+        if (clip != null)
+        {
+            sfxSource.PlayOneShot(clip);
+        }
     }
 
-    /// <summary>
-    /// Stoppe la musique.
-    /// </summary>
+    public void PlayMusic(AudioClip clip, bool loop = true)
+    {
+        if (clip != null)
+        {
+            musicSource.clip = clip;
+            musicSource.loop = true;
+            musicSource.Play();
+        }
+    }
+
     public void StopMusic()
     {
         musicSource.Stop();
     }
-
-    /// <summary>
-    /// Joue un effet sonore via le canal SFX.
-    /// </summary>
-    public void PlaySFX(AudioClip clip)
-    {
-        if (clip == null) return;
-
-        sfxSource.PlayOneShot(clip);
-    }
-
-    /// <summary>
-    /// Joue un son d’interface via le canal Menu.
-    /// </summary>
-    public void PlayMenuSound(AudioClip clip)
-    {
-        if (clip == null) return;
-
-        menuSource.PlayOneShot(clip);
-    }
-    public void PlayFootstep()
-{
-    if (woodFootsteps.Length == 0) return;
-
-    int index = Random.Range(0, woodFootsteps.Length);
-    footstepsSource.pitch = Random.Range(0.90f, 1.05f);
-    footstepsSource.PlayOneShot(woodFootsteps[index]);
-}
 }

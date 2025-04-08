@@ -80,10 +80,5 @@ namespace PlayerMovement
         {
             return _playerInputHandler.IsSprinting;
         }
-
-        public void TriggerFootSteps()
-        {
-            SoundManager.Instance.PlayFootstep();
-        }
     }
 }

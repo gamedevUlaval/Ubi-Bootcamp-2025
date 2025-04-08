@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 815812115733313005}
   - component: {fileID: 6122180658809994552}
   - component: {fileID: 7189777021531522839}
-  - component: {fileID: 1806783026306284614}
   - component: {fileID: 4675178135772626855}
   m_Layer: 0
   m_Name: coffre
@@ -78,31 +77,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.01
   m_Center: {x: 0.025, y: 0, z: 0}
---- !u!114 &1806783026306284614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7186822917402455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 0
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  DeferredDespawnTick: 0
-  Ownership: 1
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
-  SyncOwnerTransformWhenParented: 1
-  AllowOwnerToParent: 0
 --- !u!114 &4675178135772626855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,15 +89,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93e0d4da2edb144db47d5ff060a93d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
   codeText: {fileID: 0}
   beepSound: {fileID: 8300000, guid: 96f16416eb645d341a48810652a4b1e8, type: 3}
-  successSound: {fileID: 8300000, guid: 7c8741dd53a2c374182903bcda94d5d2, type: 3}
+  successSound: {fileID: 8300000, guid: 6894acbcc1dddf245b9a7ddeea6ce69f, type: 3}
   wrongSound: {fileID: 8300000, guid: b837751965aa65648b75cb1189584059, type: 3}
-  window: {fileID: 0}
+  playerControls: {fileID: 0}
   safeCode: 1234
-  codePanel: {fileID: 0}
+  codePannel: {fileID: 0}
   UIKey: {fileID: 0}
+  HaveKey: 0
 --- !u!1 &2113808938502751507
 GameObject:
   m_ObjectHideFlags: 0
