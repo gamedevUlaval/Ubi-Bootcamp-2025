@@ -41,6 +41,7 @@ public class SceneLoader : MonoBehaviour
         
         Transform cameraTargetPosition = detectedRoom.CameraTargetPosition;
         Camera.main.transform.DOMove(cameraTargetPosition.position, cameraTweenDuration);
+        Camera.main.transform.DORotate(cameraTargetPosition.rotation.eulerAngles, cameraTweenDuration);
         
         currentRoom = detectedRoom;
     }

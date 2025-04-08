@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  walkSpeed: 0.3
+  walkSpeed: 0.5
   sprintMultiplier: 1.5
   aimLayerMask:
     serializedVersion: 2

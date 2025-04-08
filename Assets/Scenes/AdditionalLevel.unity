@@ -1141,6 +1141,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2088058449656687722, guid: 55b7dec7606e49f4290020da0159f425, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088058449656687722, guid: 55b7dec7606e49f4290020da0159f425, type: 3}
       propertyPath: m_Constraints
       value: 64
       objectReference: {fileID: 0}
@@ -1613,6 +1617,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8145076833269273281, guid: 55b7dec7606e49f4290020da0159f425, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145076833269273281, guid: 55b7dec7606e49f4290020da0159f425, type: 3}
       propertyPath: m_Constraints
       value: 64
       objectReference: {fileID: 0}
@@ -1768,7 +1776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2dd1315cb2edd408bb2e1ae045e347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTargetPosition: {fileID: 0}
+  cameraTargetPosition: {fileID: 1086498004}
   sceneName: AdditionalLevel
   adjacentRooms:
   - CorridorBack
