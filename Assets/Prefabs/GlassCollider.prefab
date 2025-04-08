@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4691917705451111106}
   - component: {fileID: 2361006735173475009}
-  - component: {fileID: 6372735331311420224}
-  - component: {fileID: 9103351702360854634}
   m_Layer: 0
   m_Name: GlassCollider
   m_TagString: Breakable
@@ -57,48 +55,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.281981, y: 1.3499999, z: 0.18247986}
   m_Center: {x: -1.3139155, y: -1.193897, z: 10.974846}
---- !u!114 &6372735331311420224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139228701509836049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3944524896
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  DeferredDespawnTick: 0
-  Ownership: 1
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
-  SyncOwnerTransformWhenParented: 1
-  AllowOwnerToParent: 0
---- !u!114 &9103351702360854634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139228701509836049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce5cf06e55467b0498ef5e4e1759e016, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  isBroken: 0
-  glass: {fileID: 1379343079100948043}
-  brokenGlass: {fileID: 4567366957064971483}
-  glassBreaking: {fileID: 8300000, guid: 8847597f7e110ac46b781d56356b97fc, type: 3}
 --- !u!1 &153247664250909022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,7 +1676,7 @@ Transform:
   m_GameObject: {fileID: 1379343079100948043}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.325, y: -1.194, z: 11.095}
+  m_LocalPosition: {x: -1.3246117, y: -1.1938974, z: 11.004816}
   m_LocalScale: {x: 0.390427, y: 0.3832912, z: 0.27651}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5698,7 +5654,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3758637210308886113}
-  - component: {fileID: 6102444643755613742}
   m_Layer: 0
   m_Name: brokenGlass
   m_TagString: Untagged
@@ -5715,7 +5670,7 @@ Transform:
   m_GameObject: {fileID: 4567366957064971483}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.325, y: -1.194, z: 10.942}
+  m_LocalPosition: {x: -1.3246117, y: -1.1938974, z: 11.004816}
   m_LocalScale: {x: 0.390427, y: 0.3832912, z: 0.27651}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5821,31 +5776,6 @@ Transform:
   - {fileID: 4788689078877294901}
   m_Father: {fileID: 4691917705451111106}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6102444643755613742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4567366957064971483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4032455911
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  DeferredDespawnTick: 0
-  Ownership: 1
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
-  SyncOwnerTransformWhenParented: 1
-  AllowOwnerToParent: 0
 --- !u!1 &4583622186202972595
 GameObject:
   m_ObjectHideFlags: 0
