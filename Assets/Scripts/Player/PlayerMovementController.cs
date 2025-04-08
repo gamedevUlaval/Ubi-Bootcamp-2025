@@ -55,24 +55,11 @@ namespace PlayerMovement
         public Vector3 GetPlayerMovement()
         {
             float moveSpeed = _playerInputHandler.IsSprinting ? walkSpeed * 0.3f * sprintMultiplier : walkSpeed * 0.3f;
-            Vector2 input = _playerInputHandler.MoveInput;
+            Vector3 moveDirection = new Vector3(_playerInputHandler.MoveInput.x, 0, _playerInputHandler.MoveInput.y);
             
-            Vector3 cameraForward = _mainCamera.transform.forward;
-            Vector3 cameraRight = _mainCamera.transform.right;
-            
-            cameraForward.y = 0;
-            cameraRight.y = 0;
-            cameraForward.Normalize();
-            cameraRight.Normalize();
-            
-            Vector3 moveDirection = cameraRight * input.x + cameraForward * input.y;
-            
-            if (moveDirection.magnitude > 1)
-            {
-                moveDirection.Normalize();
-            }
+            moveDirection.Normalize();
             moveDirection *= moveSpeed;
-    
+            
             return moveDirection;
         }
         
