@@ -1217,6 +1217,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1047690953}
     - target: {fileID: 2685428555019595267, guid: 45724d7aef663bf44ae269a6627c4564, type: 3}
+      propertyPath: chestSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 90a20657b9209f04d93cdf6d57f26f52, type: 3}
+    - target: {fileID: 2685428555019595267, guid: 45724d7aef663bf44ae269a6627c4564, type: 3}
       propertyPath: codePannel
       value: 
       objectReference: {fileID: 873675750}
@@ -2258,6 +2262,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7498053444956537775, guid: 88754ff66a91e394ba834a65958c7b0b, type: 3}
+      propertyPath: ghostHaunt
+      value: 
+      objectReference: {fileID: 8300000, guid: 8159814da1c78e1449c0953afb70ff02, type: 3}
     - target: {fileID: 7504805658771337465, guid: 88754ff66a91e394ba834a65958c7b0b, type: 3}
       propertyPath: m_Size.z
       value: 0.17
@@ -6540,7 +6548,7 @@ MonoBehaviour:
   isBroken: 0
   glass: {fileID: 2059128643}
   brokenGlass: {fileID: 2059128642}
-  glassBreaking: {fileID: 8300000, guid: a0d811dc17e532b47afe9d40d9249fb2, type: 3}
+  glassBreaking: {fileID: 8300000, guid: 8847597f7e110ac46b781d56356b97fc, type: 3}
 --- !u!1001 &2062151268
 PrefabInstance:
   m_ObjectHideFlags: 0
