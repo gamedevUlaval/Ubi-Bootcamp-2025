@@ -64,6 +64,15 @@ namespace PlayerControls
             InputSystem.settings.defaultDeadzoneMin = controllerStickDeadZone;
         }
 
+        void Start()
+        {
+            if (PlayerInputHandler.Instance is null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+        }
+
         void FindActionMap()
         {
             moveAction = playerControls.FindActionMap(movementActionMapName).FindAction(move);

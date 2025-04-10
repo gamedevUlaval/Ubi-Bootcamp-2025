@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2135766277
+  GlobalObjectIdHash: 2027229038
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -116,6 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd12187024e0f1aa8f65b0e61ebcba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  chestOpen: {fileID: 8300000, guid: 1c92dd25927181c4b90cd2642cbb8472, type: 3}
 --- !u!1 &7146786662269753689
 GameObject:
   m_ObjectHideFlags: 0

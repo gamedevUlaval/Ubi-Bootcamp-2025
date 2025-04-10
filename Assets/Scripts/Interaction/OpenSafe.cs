@@ -9,8 +9,8 @@ public class OpenSafe : NetworkBehaviour, IInteractable
 {
     [SerializeField] private TextMeshProUGUI codeText;
     [SerializeField] private AudioClip beepSound;
-    [SerializeField] private AudioClip successSound;
     [SerializeField] private AudioClip wrongSound;
+    [SerializeField] private AudioClip chestSound;
     PlayerInputHandler playerControls;
 
     [SerializeField] private WindowBehaviour window;
@@ -35,18 +35,18 @@ public class OpenSafe : NetworkBehaviour, IInteractable
 
             if (codeTextValue == safeCode)
             {
-                GetComponent<AudioSource>().PlayOneShot(successSound);
+                SoundSuccessRoutineRPC();
                 codePanel.SetActive(false);
             }
             else
             {
-                GetComponent<AudioSource>().PlayOneShot(wrongSound);
+                SoundManager.Instance.PlaySFX(wrongSound);
                 codeTextValue = "";
             }
         }
         else
         {
-            GetComponent<AudioSource>().PlayOneShot(beepSound);
+            SoundManager.Instance.PlaySFX(beepSound);
             codeTextValue += digit;
         }
     }
@@ -57,6 +57,7 @@ public class OpenSafe : NetworkBehaviour, IInteractable
         
         if (window.isBroken)
         {
+            SoundManager.Instance.PlaySFX(chestSound);
             codePanel.SetActive(true);
             codePanelOpen = true;
         }
@@ -84,6 +85,11 @@ public class OpenSafe : NetworkBehaviour, IInteractable
             
             yield return null;
         }
+    }
+
+    void SoundSuccessRoutineRPC()
+    {
+        SoundManager.Instance.PlaySuccessMusic();
     }
 
     public bool InteractWith(GameObject tryToInteractWith)

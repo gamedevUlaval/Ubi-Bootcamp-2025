@@ -1,5 +1,6 @@
 using PlayerControls;
 using TMPro;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 public class TableauBehaviour : MonoBehaviour  /*IInteractable*/
 {
@@ -13,6 +14,9 @@ public class TableauBehaviour : MonoBehaviour  /*IInteractable*/
     [SerializeField] private bool timerStart;
     [SerializeField] private TextMeshProUGUI compteur;
 
+    [Header("Sound")]
+    [SerializeField] private AudioClip clockTicking;
+
     void Start()
     {
         currentCanvasTimer = initialCanvasTimer;   
@@ -22,7 +26,9 @@ public class TableauBehaviour : MonoBehaviour  /*IInteractable*/
         if(isPlayerNear)
         {
             if(playerControls.InteractInput && !canvasOn)
-            {    
+            {   
+                SoundManager.Instance.PlayGhostHaunt();
+                SoundManager.Instance.PlaySFX(clockTicking);
                 ghostCanvas.SetActive(true);
                 canvasOn = true;
                 timerStart = true;
@@ -53,7 +59,8 @@ public class TableauBehaviour : MonoBehaviour  /*IInteractable*/
 
     void StartTimer()
     {
-        compteur.text = currentCanvasTimer.ToString("F1");
+        
+        compteur.text = currentCanvasTimer.ToString("F0");
         if (currentCanvasTimer > 0)
         {
             currentCanvasTimer -= timerDeceleration;
