@@ -1,5 +1,6 @@
 using System;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PushObj : NetworkBehaviour
@@ -9,7 +10,7 @@ public class PushObj : NetworkBehaviour
     [Header("Sound")]
     [SerializeField] private AudioClip pushingSound;
 
-    private float movementThreshold = 0.001f;
+    private float movementThreshold = 0.009f;
     private float stopDelay = 0.3f;
     private float timeSinceMoving = 0f;
     private bool isLoopPlaying = false;
@@ -24,7 +25,7 @@ public class PushObj : NetworkBehaviour
         if (!IsOwner) return;
 
         float velocity = rb.linearVelocity.magnitude;
-
+        Debug.Log(velocity);
         if (velocity > movementThreshold)
         {
             timeSinceMoving = 0f;
@@ -39,7 +40,7 @@ public class PushObj : NetworkBehaviour
         {
             timeSinceMoving += Time.deltaTime;
 
-            if (isLoopPlaying && timeSinceMoving >= stopDelay)
+            if (isLoopPlaying && timeSinceMoving > stopDelay)
             {
                 SoundManager.Instance.StopSFXLoop();
                 isLoopPlaying = false;

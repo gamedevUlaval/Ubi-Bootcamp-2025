@@ -109,7 +109,7 @@ public class SoundManager : MonoBehaviour
 
     public void StopSFXLoop()
     {
-        if (sfxSource.isPlaying)
+        if (loopingSource.isPlaying)
         {
             loopingSource.Stop();
             loopingSource.clip = null;
