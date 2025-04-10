@@ -9,15 +9,19 @@ public class LampBehaviour : NetworkBehaviour
     [SerializeField] private float timeBeforeOffLampLight;
     [SerializeField] private PlayerInputHandler playerControls;
     [SerializeField] private bool isPlayerNear;
+    [SerializeField] private bool isLampOn;
+    [Header("Sound")]
+    [SerializeField] private AudioClip lampOnSound;
 
 
     void Update()
     {   
         if (isPlayerNear)
         {
-            if (playerControls.InteractInput)
+            if (playerControls.InteractInput && !isLampOn)
             {
                 //Call Puzzle Validator 
+                
                 TurnOnLampRpc();
                 
             }
@@ -40,14 +44,19 @@ public class LampBehaviour : NetworkBehaviour
     }
     IEnumerator LightOnCoolDown()
     {
+        SoundManager.Instance.PlayGhostHaunt();
+        SoundManager.Instance.PlaySFX(lampOnSound);
+        isLampOn = true;
         lampLight.SetActive(true);
         yield return new WaitForSeconds(timeBeforeOffLampLight);
         lampLight.SetActive(false);
+        isLampOn = false;
     }
 
     [Rpc(SendTo.Everyone, RequireOwnership = false)]
     void TurnOnLampRpc()
     {
+
         StartCoroutine(LightOnCoolDown());
         PuzzleValidator.Instance.CheckIfSolved();
     }

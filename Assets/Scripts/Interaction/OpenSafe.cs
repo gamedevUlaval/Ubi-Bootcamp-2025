@@ -9,7 +9,6 @@ public class OpenSafe : NetworkBehaviour, IInteractable
 {
     [SerializeField] private TextMeshProUGUI codeText;
     [SerializeField] private AudioClip beepSound;
-    [SerializeField] private AudioClip successSound;
     [SerializeField] private AudioClip wrongSound;
     [SerializeField] private AudioClip chestSound;
     PlayerInputHandler playerControls;
@@ -90,7 +89,7 @@ public class OpenSafe : NetworkBehaviour, IInteractable
 
     void SoundSuccessRoutineRPC()
     {
-        SoundManager.Instance.PlaySFX(successSound);
+        SoundManager.Instance.PlaySuccessMusic();
     }
 
     public bool InteractWith(GameObject tryToInteractWith)

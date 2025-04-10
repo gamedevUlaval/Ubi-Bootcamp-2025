@@ -9,12 +9,17 @@ public class SoundManager : MonoBehaviour
     public AudioSource musicSource;   // Assigné au groupe "Musics"
     public AudioSource sfxSource;     // Assigné au groupe "SoundEffects"
     public AudioSource menuSource;    // Assigné au groupe "Menus"
-    [SerializeField] private AudioSource footstepsSource;
+    [SerializeField] private AudioSource foleysSource;
 
     [Header("Audio Clips")]
     public AudioClip mainTheme; // Musique du menu ou du début de jeu
-    [SerializeField] private AudioClip[] woodFootsteps;      //Pas de l'humain sur bois
+    public AudioClip successMusic;
 
+    [Header("HumanSounds")]
+    [SerializeField] private AudioClip[] woodFootsteps;
+          //Pas de l'humain sur bois
+    [Header("GhostSounds")]
+    [SerializeField] private AudioClip ghostHaunting;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -75,11 +80,20 @@ public class SoundManager : MonoBehaviour
         menuSource.PlayOneShot(clip);
     }
     public void PlayFootstep()
-{
-    if (woodFootsteps.Length == 0) return;
+    {
+        if (woodFootsteps.Length == 0) return;
 
-    int index = Random.Range(0, woodFootsteps.Length);
-    footstepsSource.pitch = Random.Range(0.90f, 1.05f);
-    footstepsSource.PlayOneShot(woodFootsteps[index]);
-}
+        int index = Random.Range(0, woodFootsteps.Length);
+        foleysSource.pitch = Random.Range(0.90f, 1.05f);
+        foleysSource.PlayOneShot(woodFootsteps[index]);
+    }
+
+    public void PlayGhostHaunt()
+    {
+        foleysSource.PlayOneShot(ghostHaunting);
+    }
+    public void PlaySuccessMusic()
+    {
+        sfxSource.PlayOneShot(successMusic);
+    }
 }

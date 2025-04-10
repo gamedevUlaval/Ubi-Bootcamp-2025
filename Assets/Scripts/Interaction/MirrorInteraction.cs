@@ -18,7 +18,7 @@ public class MirrorInteraction : NetworkBehaviour, IInteractable
     [ContextMenu("Fog up mirror")]
     public void Interact()
     {
-        SoundManager.Instance.PlaySFX(ghostHaunt);
+        
         InteractionRpc();
     }
     
@@ -31,6 +31,7 @@ public class MirrorInteraction : NetworkBehaviour, IInteractable
     [Rpc(SendTo.Everyone)]
     private void InteractionRpc()
     {
+        SoundManager.Instance.PlayGhostHaunt();
         meshRenderer.SetMaterials(new List<Material> { foggyMaterial});
     }
     
