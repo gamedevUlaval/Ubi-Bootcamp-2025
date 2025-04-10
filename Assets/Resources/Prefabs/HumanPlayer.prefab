@@ -275,6 +275,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   grabPoint: {fileID: 7965798659021844463}
   grabCooldown: 0.3
+  grabSound: {fileID: 8300000, guid: 05e9a5aee76a7de4fa1446c85ff5a2c2, type: 3}
 --- !u!54 &2678999102153132335
 Rigidbody:
   m_ObjectHideFlags: 0

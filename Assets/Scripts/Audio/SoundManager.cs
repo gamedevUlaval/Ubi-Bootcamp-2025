@@ -9,7 +9,9 @@ public class SoundManager : MonoBehaviour
     public AudioSource musicSource;   // Assigné au groupe "Musics"
     public AudioSource sfxSource;     // Assigné au groupe "SoundEffects"
     public AudioSource menuSource;    // Assigné au groupe "Menus"
-    [SerializeField] private AudioSource foleysSource;
+    public AudioSource foleysSource;
+
+    public AudioSource loopingSource;
 
     [Header("Audio Clips")]
     public AudioClip mainTheme; // Musique du menu ou du début de jeu
@@ -95,5 +97,23 @@ public class SoundManager : MonoBehaviour
     public void PlaySuccessMusic()
     {
         sfxSource.PlayOneShot(successMusic);
+    }
+    public void PlaySFXLoop(AudioClip clip)
+    {
+        if (loopingSource.isPlaying && loopingSource.clip == clip) return;
+    
+        loopingSource.clip = clip;
+        loopingSource.loop = true;
+        loopingSource.Play();
+    }
+
+    public void StopSFXLoop()
+    {
+        if (sfxSource.isPlaying)
+        {
+            loopingSource.Stop();
+            loopingSource.clip = null;
+            loopingSource.loop = false;
+        }
     }
 }
