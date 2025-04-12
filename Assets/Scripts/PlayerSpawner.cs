@@ -28,13 +28,9 @@ public class PlayerSpawner : NetworkBehaviour
         {
             prefab = Resources.Load<GameObject>("Ghost");
         }
-        Debug.Log("Trying to spawn local game object");
         var instance = Instantiate(prefab, transform);
-        Debug.Log("Trying to spawn get network object");
         var instanceNetworkObject = instance.GetComponent<NetworkObject>();
-        Debug.Log("Trying to spawn game object on the network");
         instanceNetworkObject.Spawn();
-        Debug.Log("Managed to spawn" + prefab.name);
     }
     
 }

@@ -40,11 +40,13 @@ public class LightCombination : NetworkBehaviour
         }
         if (attempt.Count == answer.Count)
         {
-            OpenDoor();
+            AddKeyRpc();
         }
     }
-    private void OpenDoor()
+    [Rpc(SendTo.Everyone)]
+    private void AddKeyRpc()
     {
-        door.SetActive(false);
+        SoundManager.Instance.PlaySuccessMusic();
+        KeyManager.Instance.AddKey(0);
     }
 }

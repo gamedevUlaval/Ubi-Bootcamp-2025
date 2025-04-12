@@ -32,8 +32,12 @@ public class ConnectionManager : MonoBehaviour
         await UnityServices.InitializeAsync();
         if (CurrentPlayer.ReadOnlyTags().Any(str=>str.Contains("INIT")))
         {
-            _sessionName = Environment.UserName+System.DateTime.Now.ToString("HHmm");
-            _profileName = Environment.UserName+System.DateTime.Now.ToString("HHmm")+CurrentPlayer.ReadOnlyTags().First();
+            _sessionName = Environment.UserName;//+System.DateTime.Now.ToString("HHmm");
+            _profileName = Environment.UserName + CurrentPlayer.ReadOnlyTags().First();//+System.DateTime.Now.ToString("HHmm");
+            if (CurrentPlayer.ReadOnlyTags().Any(str=>str.Contains("GHOST")))
+            {
+                await Task.Delay(1000);
+            }
             await CreateOrJoinSessionAsync();
         }
     }

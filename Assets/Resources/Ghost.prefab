@@ -162,7 +162,7 @@ PrefabInstance:
       addedObject: {fileID: 9024656440858375123}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 34b58f49afe3448b08f459e7d375c0df, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4814528419330685355}
+      addedObject: {fileID: 544896630356920158}
   m_SourcePrefab: {fileID: 100100000, guid: 34b58f49afe3448b08f459e7d375c0df, type: 3}
 --- !u!4 &1779271251170107999 stripped
 Transform:
@@ -355,7 +355,7 @@ MonoBehaviour:
   UseRigidBodyForMotion: 0
   AutoUpdateKinematicState: 1
   AutoSetKinematicOnDespawn: 1
---- !u!114 &4814528419330685355
+--- !u!114 &544896630356920158
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

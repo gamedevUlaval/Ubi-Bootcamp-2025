@@ -17,14 +17,14 @@ public class OpenSafe : NetworkBehaviour, IInteractable
     private string codeTextValue = "";
     [SerializeField] string safeCode;
     [SerializeField] GameObject codePanel;
-    [SerializeField] GameObject UIKey;
     private bool codePanelOpen = false;
     
 
     [Rpc(SendTo.Everyone)]
     private void AddKeyRPC()
     {
-        UIKey.SetActive(true);
+        SoundManager.Instance.PlaySuccessMusic();
+        KeyManager.Instance.AddKey(1);
     }
 
     public void AddDigit(string digit)
@@ -35,7 +35,6 @@ public class OpenSafe : NetworkBehaviour, IInteractable
 
             if (codeTextValue == safeCode)
             {
-                SoundSuccessRoutineRPC();
                 codePanel.SetActive(false);
             }
             else
@@ -85,11 +84,6 @@ public class OpenSafe : NetworkBehaviour, IInteractable
             
             yield return null;
         }
-    }
-
-    void SoundSuccessRoutineRPC()
-    {
-        SoundManager.Instance.PlaySuccessMusic();
     }
 
     public bool InteractWith(GameObject tryToInteractWith)

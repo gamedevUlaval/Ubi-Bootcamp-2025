@@ -36,7 +36,6 @@ public class PuzzleValidator : NetworkBehaviour
 
         if (allCorrect)
         {
-            Debug.Log("Bravo!");
             OpenDoorRpc();
         }
         else
