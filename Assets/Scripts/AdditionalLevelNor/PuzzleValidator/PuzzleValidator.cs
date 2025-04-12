@@ -49,6 +49,7 @@ public class PuzzleValidator : NetworkBehaviour
     [Rpc(SendTo.Everyone, RequireOwnership = false)]
     public void OpenDoorRpc()
     {
+        SoundManager.Instance.PlaySuccessMusic();
         KeyManager.Instance.AddKey(2);
     }
     

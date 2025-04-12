@@ -9,6 +9,9 @@ public class WindowInteraction : NetworkBehaviour, IInteractable
     private float timer;
     private float cooldown;
 
+    [Header("Sound")]
+    [SerializeField] private AudioClip lightningSound;
+
     void Start()
     {
         timer = randomnessInterval.x;
@@ -46,6 +49,11 @@ public class WindowInteraction : NetworkBehaviour, IInteractable
     private void PlayAnimation()
     {
         lightningAnimation.Play("Lightning");
+    }
+
+    public void PlaySound()
+    {
+        SoundManager.Instance.PlaySFX(lightningSound);
     }
 
     public bool InteractWith(GameObject tryToInteractWith)
