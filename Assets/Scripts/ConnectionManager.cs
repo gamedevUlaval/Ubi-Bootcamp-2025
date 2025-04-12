@@ -96,10 +96,10 @@ public class ConnectionManager : MonoBehaviour
 
        try
        {
-           // if (AuthenticationService.Instance.IsSignedIn)
-           // {
-           //     AuthenticationService.Instance.SignOut();
-           // }
+           if (AuthenticationService.Instance.IsSignedIn)
+           {
+               AuthenticationService.Instance.SignOut();
+           }
            AuthenticationService.Instance.SwitchProfile(_profileName);
            await AuthenticationService.Instance.SignInAnonymouslyAsync();
 

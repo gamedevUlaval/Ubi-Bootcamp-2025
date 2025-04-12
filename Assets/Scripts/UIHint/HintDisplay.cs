@@ -14,10 +14,14 @@ public class HintDisplay : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(whoHint) && other.gameObject.GetComponent<NetworkObject>().HasAuthority)// Selon le joueur
+        if (other.CompareTag(whoHint))// Selon le joueur
         {
-            hintTMP.text = hintText;
-            StartCoroutine(HintAnimation());
+            NetworkObject networkObject = other.gameObject.GetComponent<NetworkObject>();
+            if (networkObject != null && networkObject.IsOwner)
+            {
+                hintTMP.text = hintText;
+                StartCoroutine(HintAnimation());
+            }
         }
             
     }   

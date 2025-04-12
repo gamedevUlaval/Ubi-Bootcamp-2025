@@ -204,7 +204,7 @@ MonoBehaviour:
   GlobalObjectIdHash: 2472109023
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
-  Ownership: 1
+  Ownership: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -410,6 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8466a36ccd59d2e459d1d35a3dbe60f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  StartingScene: {fileID: 102900000, guid: e6453ee8a696f067bbe1f9b813da5e12, type: 3}
   cameraTweenDuration: 1
 --- !u!114 &-1836095362037658224
 MonoBehaviour:
