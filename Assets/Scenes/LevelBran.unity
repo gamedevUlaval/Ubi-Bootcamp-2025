@@ -427,6 +427,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2249837566450791338, guid: f8e8b97eb73ef1444a24678fd3502043, type: 3}
+      propertyPath: m_Constraints
+      value: 124
+      objectReference: {fileID: 0}
     - target: {fileID: 4743903885285176039, guid: f8e8b97eb73ef1444a24678fd3502043, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2915847752
@@ -498,6 +502,10 @@ PrefabInstance:
     - target: {fileID: 7317491871804565981, guid: f8e8b97eb73ef1444a24678fd3502043, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3114922207
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155553007477085931, guid: f8e8b97eb73ef1444a24678fd3502043, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9054251407105439911, guid: f8e8b97eb73ef1444a24678fd3502043, type: 3}
       propertyPath: m_Name
