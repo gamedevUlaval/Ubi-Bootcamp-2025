@@ -6,6 +6,7 @@ public class KeyManager : MonoBehaviour
 {
     public static KeyManager Instance { get; private set; }
     public List<GameObject> keyObjects;
+    public bool debugEverythingUnlocked = false;
 
     private void Awake()
     {
@@ -17,6 +18,10 @@ public class KeyManager : MonoBehaviour
 
     private void Start()
     {
+        if (debugEverythingUnlocked)
+        {
+            return;
+        }
         foreach (var key in keyObjects)
         {
             key.SetActive(false);

@@ -149,13 +149,13 @@ PrefabInstance:
       addedObject: {fileID: 333719687477830333}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ae3a14463d8fa4be186b44df9edebf20, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7626480960220736532}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ae3a14463d8fa4be186b44df9edebf20, type: 3}
-      insertIndex: -1
       addedObject: {fileID: -1836095362037658224}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ae3a14463d8fa4be186b44df9edebf20, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1240760239769356972}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ae3a14463d8fa4be186b44df9edebf20, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4906418367748206197}
   m_SourcePrefab: {fileID: 100100000, guid: ae3a14463d8fa4be186b44df9edebf20, type: 3}
 --- !u!4 &2886058614263144608 stripped
 Transform:
@@ -204,7 +204,7 @@ MonoBehaviour:
   GlobalObjectIdHash: 2472109023
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
-  Ownership: 1
+  Ownership: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -398,19 +398,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   nearbyInteractableObjects: []
---- !u!114 &7626480960220736532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8442583950327097497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8466a36ccd59d2e459d1d35a3dbe60f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraTweenDuration: 1
 --- !u!114 &-1836095362037658224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,6 +435,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 3.5, z: 2}
+--- !u!114 &4906418367748206197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8442583950327097497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8466a36ccd59d2e459d1d35a3dbe60f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  StartingScene: {fileID: 102900000, guid: e6453ee8a696f067bbe1f9b813da5e12, type: 3}
+  cameraTweenDuration: 1
 --- !u!4 &9106777572663456291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ae3a14463d8fa4be186b44df9edebf20, type: 3}

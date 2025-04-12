@@ -32,8 +32,12 @@ public class ConnectionManager : MonoBehaviour
         await UnityServices.InitializeAsync();
         if (CurrentPlayer.ReadOnlyTags().Any(str=>str.Contains("INIT")))
         {
-            _sessionName = Environment.UserName+System.DateTime.Now.ToString("HHmm");
-            _profileName = Environment.UserName+System.DateTime.Now.ToString("HHmm")+CurrentPlayer.ReadOnlyTags().First();
+            _sessionName = Environment.UserName;//+System.DateTime.Now.ToString("HHmm");
+            _profileName = Environment.UserName + CurrentPlayer.ReadOnlyTags().First();//+System.DateTime.Now.ToString("HHmm");
+            if (CurrentPlayer.ReadOnlyTags().Any(str=>str.Contains("GHOST")))
+            {
+                await Task.Delay(1000);
+            }
             await CreateOrJoinSessionAsync();
         }
     }
@@ -96,10 +100,10 @@ public class ConnectionManager : MonoBehaviour
 
        try
        {
-           // if (AuthenticationService.Instance.IsSignedIn)
-           // {
-           //     AuthenticationService.Instance.SignOut();
-           // }
+           if (AuthenticationService.Instance.IsSignedIn)
+           {
+               AuthenticationService.Instance.SignOut();
+           }
            AuthenticationService.Instance.SwitchProfile(_profileName);
            await AuthenticationService.Instance.SignInAnonymouslyAsync();
 

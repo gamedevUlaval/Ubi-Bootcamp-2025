@@ -25,7 +25,6 @@ public class PushObj : NetworkBehaviour
         if (!IsOwner) return;
 
         float velocity = rb.linearVelocity.magnitude;
-        Debug.Log(velocity);
         if (velocity > movementThreshold)
         {
             timeSinceMoving = 0f;

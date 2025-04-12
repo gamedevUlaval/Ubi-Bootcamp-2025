@@ -41,7 +41,6 @@ namespace PlayerControls
         {
             if (!HasAuthority)
             {
-                DontDestroyOnLoad(gameObject);
                 return;
             }
             if (Instance is null)
@@ -62,15 +61,6 @@ namespace PlayerControls
             OnEnable();
             
             InputSystem.settings.defaultDeadzoneMin = controllerStickDeadZone;
-        }
-
-        void Start()
-        {
-            if (PlayerInputHandler.Instance is null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
         }
 
         void FindActionMap()
