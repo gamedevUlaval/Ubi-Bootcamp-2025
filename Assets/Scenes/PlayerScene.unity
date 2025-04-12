@@ -384,7 +384,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 668870838225280934, guid: 31a038cc50d5f6f9b8c1f115416ad142, type: 3}
       propertyPath: debugEverythingUnlocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1685956300116654373, guid: 31a038cc50d5f6f9b8c1f115416ad142, type: 3}
       propertyPath: m_Name
