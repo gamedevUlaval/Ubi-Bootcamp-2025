@@ -24,7 +24,7 @@ public class ObjectsCheck : NetworkBehaviour
         else
         {
             statusLight.SetActive(true);
-            statusLight.GetComponent<Light>().color = Color.red;
+            statusLight.GetComponent<Light>().color = Color.white;
         }
 
         yield return new WaitForSeconds(3f);
