@@ -106,6 +106,7 @@ public class SceneLoader : NetworkBehaviour
         Transform cameraTargetPosition = detectedRoom.CameraTargetPosition;
         Camera.main.transform.DOMove(cameraTargetPosition.position, cameraTweenDuration);
         Camera.main.transform.DORotate(cameraTargetPosition.rotation.eulerAngles, cameraTweenDuration);
+        SoundManager.Instance.ChangeMainMusic(detectedRoom.SceneName);
         currentRoom = detectedRoom;
     }
     void LoadScene(string sceneName)

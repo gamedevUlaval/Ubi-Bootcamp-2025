@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -16,6 +17,12 @@ public class SoundManager : MonoBehaviour
     [Header("Audio Clips")]
     public AudioClip mainTheme; // Musique du menu ou du début de jeu
     public AudioClip successMusic;
+
+    [Header("Level Musics")]
+
+    public AudioClip lightningLevelMusic;
+
+    private Dictionary<string, AudioClip> sceneMusicMap;
 
     [Header("HumanSounds")]
     [SerializeField] private AudioClip[] woodFootsteps;
@@ -36,6 +43,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
+        sceneMusicMap = new Dictionary<string, AudioClip> {{ "LightningLevel", lightningLevelMusic}};
         if (mainTheme != null)
         {
             PlayMusic(mainTheme);
@@ -114,6 +122,17 @@ public class SoundManager : MonoBehaviour
             loopingSource.Stop();
             loopingSource.clip = null;
             loopingSource.loop = false;
+        }
+    }
+    public void ChangeMainMusic(string sceneName)
+    {
+        if (sceneMusicMap.TryGetValue(sceneName, out AudioClip clip) && clip != null)
+        {
+            PlayMusic(clip);
+        }
+        else
+        {
+            Debug.LogWarning($"No music assigned for scene: {sceneName}");
         }
     }
 }
