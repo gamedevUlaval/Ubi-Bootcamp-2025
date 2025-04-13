@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class SafeWithoutCombinationInteraction : NetworkBehaviour, IInteractable
 {
+    [Header("Sound")]
+    [SerializeField] private AudioClip chestOpen;
     
     [ContextMenu("Open chest")]
     public void Interact()
     {
+        SoundManager.Instance.PlaySFX(chestOpen);
         AddKeyRPC();
     }
 

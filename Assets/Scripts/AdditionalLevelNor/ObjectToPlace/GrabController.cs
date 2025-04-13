@@ -12,6 +12,9 @@ public class GrabController : NetworkBehaviour
     private float lastGrabTime = -999f;
     private Collider currentGrabbable;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioClip grabSound;
+
     void Start()
     {
         playerControls = GetComponent<PlayerInputHandler>();
@@ -24,6 +27,7 @@ public class GrabController : NetworkBehaviour
 
         if (playerControls.InteractInput && Time.time - lastGrabTime > grabCooldown)
         {
+            SoundManager.Instance.PlaySFX(grabSound);
             if (heldObject == null)
                 Grab();
             else

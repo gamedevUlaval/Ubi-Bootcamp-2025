@@ -36,7 +36,6 @@ public class PuzzleValidator : NetworkBehaviour
 
         if (allCorrect)
         {
-            Debug.Log("Bravo!");
             OpenDoorRpc();
         }
         else
@@ -49,6 +48,7 @@ public class PuzzleValidator : NetworkBehaviour
     [Rpc(SendTo.Everyone, RequireOwnership = false)]
     public void OpenDoorRpc()
     {
+        SoundManager.Instance.PlaySuccessMusic();
         KeyManager.Instance.AddKey(2);
     }
     

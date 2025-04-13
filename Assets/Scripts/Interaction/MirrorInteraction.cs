@@ -8,6 +8,8 @@ public class MirrorInteraction : NetworkBehaviour, IInteractable
     public Material baseMaterial;
     public Material foggyMaterial;
 
+    [SerializeField] private AudioClip ghostHaunt;
+
     void Start()
     {
         meshRenderer.SetMaterials(new List<Material> { baseMaterial});
@@ -16,6 +18,7 @@ public class MirrorInteraction : NetworkBehaviour, IInteractable
     [ContextMenu("Fog up mirror")]
     public void Interact()
     {
+        
         InteractionRpc();
     }
     
@@ -28,6 +31,7 @@ public class MirrorInteraction : NetworkBehaviour, IInteractable
     [Rpc(SendTo.Everyone)]
     private void InteractionRpc()
     {
+        SoundManager.Instance.PlayGhostHaunt();
         meshRenderer.SetMaterials(new List<Material> { foggyMaterial});
     }
     

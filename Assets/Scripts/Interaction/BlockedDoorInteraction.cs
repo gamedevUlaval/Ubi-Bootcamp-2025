@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class BlockedDoorInteraction : NetworkBehaviour, IInteractable
 {
+    [SerializeField] AudioClip lockedDoor;
     [ContextMenu("Try to open blocked door")]
     public void Interact()
     {
@@ -19,6 +20,7 @@ public class BlockedDoorInteraction : NetworkBehaviour, IInteractable
     void InteractionRpc()
     {
         //play sound
+        SoundManager.Instance.PlaySFX(lockedDoor);
         print("tried to open blocked door");
     }
     

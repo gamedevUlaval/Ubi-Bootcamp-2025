@@ -1,15 +1,35 @@
 using UnityEngine;
 using Unity.Netcode;
+using UnityEngine.Serialization;
 
-public class DoorBehaviour : NetworkBehaviour
+public class DoorBehaviour : NetworkBehaviour, IInteractable
 {
-    private bool isOpen = false;
+    public AudioClip failureAudioClip;
 
-    public void OpenDoor()
+    [Rpc(SendTo.Everyone, RequireOwnership = false)]
+    public void OpenDoorRpc()
     {
-        if (isOpen) return;
-
-        transform.Rotate(90f, 0f, 0f); // Y pour rotation de porte horizontale
-        isOpen = true;
+        SoundManager.Instance.PlaySuccessMusic();
     }
+
+    public void Interact()
+    {
+        KeyManager km = KeyManager.Instance;
+        if (km.HasKey(0) && km.HasKey(1) && km.HasKey(2) && km.HasKey(3))
+        {
+            
+            OpenDoorRpc();
+        }
+        else
+        {
+            SoundManager.Instance.PlaySFX(failureAudioClip);
+        }
+    }
+
+    public bool InteractWith(GameObject tryToInteractWith)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public InteractableType InteractableType => InteractableType.Cooldown;
 }

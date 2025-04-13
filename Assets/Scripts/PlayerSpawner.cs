@@ -31,9 +31,6 @@ public class PlayerSpawner : NetworkBehaviour
         var instance = Instantiate(prefab, transform);
         var instanceNetworkObject = instance.GetComponent<NetworkObject>();
         instanceNetworkObject.Spawn();
-        instanceNetworkObject.RequestOwnership();
-        instanceNetworkObject.SetOwnershipLock(true);
-        Debug.Log($"Has ownership over {prefab.name}");
     }
     
 }
