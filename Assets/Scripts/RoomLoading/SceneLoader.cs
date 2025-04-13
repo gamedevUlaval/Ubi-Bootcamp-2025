@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
@@ -110,12 +113,8 @@ public class SceneLoader : NetworkBehaviour
     {
         if (loadingScenes.ContainsKey(sceneName) || loadedScenes.ContainsKey(sceneName))
             return;
-        
-        var status = NetworkManager.SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-        if (status != SceneEventProgressStatus.Started)
-        {
-            Debug.LogWarning("Scene " + sceneName + " could not be loaded because " + status);
-        }
+
+        RetryLoadUnloadScene(()=>NetworkManager.SceneManager.LoadScene(sceneName, LoadSceneMode.Additive), 30, 5);
     }
     
     void UnloadScene(string sceneName)
@@ -124,11 +123,7 @@ public class SceneLoader : NetworkBehaviour
         if (!sceneToUnload.HasValue || unloadingScenes.ContainsKey(sceneName))
             return;
 
-        var status = NetworkManager.SceneManager.UnloadScene(sceneToUnload.Value);
-        if (status != SceneEventProgressStatus.Started)
-        {
-            Debug.LogWarning("Scene " + sceneName + " could not be unloaded because " + status);
-        }
+        RetryLoadUnloadScene(()=>NetworkManager.SceneManager.UnloadScene(sceneToUnload.Value), 30, 5);
     }
     
     Room DetectCurrentRoom()
@@ -202,4 +197,27 @@ public class SceneLoader : NetworkBehaviour
         unloadingScenes.Remove(sceneName);
         loadedScenes.Remove(sceneName);
     }
+    
+    private async Task<SceneEventProgressStatus> RetryLoadUnloadScene(Func<SceneEventProgressStatus> callback, int delayMillis,
+        int retryAmount)
+    {
+        int retryCount = 0;
+        SceneEventProgressStatus status;
+        do
+        {
+            status = callback.Invoke();
+            await Task.Delay(delayMillis);
+            retryCount++;
+        } while (retryCount < retryAmount && status == SceneEventProgressStatus.SceneEventInProgress);
+        if (retryCount != 0)
+        {
+            Debug.Log($"Retried {retryCount} of {retryAmount} scene events");
+        }
+        if (status != SceneEventProgressStatus.Started)
+        {
+            Debug.LogError($"Failed load unload action because of scene event {status}");
+        }
+        return status;
+    }
 }
+

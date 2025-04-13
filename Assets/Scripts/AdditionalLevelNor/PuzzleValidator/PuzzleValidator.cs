@@ -3,23 +3,6 @@ using Unity.Netcode;
 public class PuzzleValidator : NetworkBehaviour
 {
     public ObjectsCheck[] objectsToCheck;
-    public DoorBehaviour doorBehaviour;
-    public static PuzzleValidator Instance { get; private set;}
-
-    void Awake()
-    {
-        
-        if (Instance is null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-        else
-            {
-                Destroy(gameObject);
-                return;
-            }
-    }
     public void CheckIfSolved()
     {
         bool allCorrect = true;

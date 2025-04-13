@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using PlayerControls;
 using Unity.Netcode;
 using UnityEngine;
@@ -74,9 +75,10 @@ public class PlayerInteraction : NetworkBehaviour
     void UpdateInteractions()
     {
         bool foundTarget = false;
-        
+        nearbyInteractableObjects = nearbyInteractableObjects.Where(obj => obj != null).ToList();
         foreach (var obj in nearbyInteractableObjects)
         {
+            
             Vector3 directionToObject = obj.transform.position - playerHead.position;
             float angleBetweenVisionAndObjectDirection = Vector3.Dot(playerHead.forward, directionToObject.normalized);
             Debug.DrawRay(playerHead.position, directionToObject, Color.red);

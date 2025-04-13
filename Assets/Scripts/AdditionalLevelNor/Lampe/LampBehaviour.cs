@@ -12,6 +12,7 @@ public class LampBehaviour : NetworkBehaviour
     [SerializeField] private bool isLampOn;
     [Header("Sound")]
     [SerializeField] private AudioClip lampOnSound;
+    [SerializeField] private PuzzleValidator puzzleValidator;
 
 
     void Update()
@@ -58,6 +59,6 @@ public class LampBehaviour : NetworkBehaviour
     {
 
         StartCoroutine(LightOnCoolDown());
-        PuzzleValidator.Instance.CheckIfSolved();
+        puzzleValidator.CheckIfSolved();
     }
 }
