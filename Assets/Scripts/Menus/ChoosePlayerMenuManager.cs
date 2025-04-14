@@ -64,5 +64,6 @@ public class ChoosePlayerMenuManager : MonoBehaviour
     {
         ConnectionManager.Instance.CreateOrJoinSessionAsync();
         StartCoroutine(UnloadAsynchronously());
+        SoundManager.Instance.ChangeMainMusic("Level1");
     }
 }
