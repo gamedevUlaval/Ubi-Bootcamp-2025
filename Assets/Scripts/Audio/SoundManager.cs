@@ -20,8 +20,15 @@ public class SoundManager : MonoBehaviour
 
     [Header("Level Musics")]
 
+    public AudioClip firstLevelMusic;
     public AudioClip lightningLevelMusic;
-
+    public AudioClip lampsLevelMusic;
+    public AudioClip frameLevelMusic;
+    [Header("Level Scene Names")] 
+    public string levelLampeName;
+    public string levelLightningName;
+    public string levelFramesName;
+    public string levelOneName;
     private Dictionary<string, AudioClip> sceneMusicMap;
 
     [Header("HumanSounds")]
@@ -43,7 +50,8 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        sceneMusicMap = new Dictionary<string, AudioClip> {{ "LightningLevel", lightningLevelMusic}};
+        sceneMusicMap = new Dictionary<string, AudioClip> {
+            { levelLightningName, lightningLevelMusic} , {levelFramesName, frameLevelMusic} , {levelLampeName, lampsLevelMusic}, {levelOneName, firstLevelMusic}};
         if (mainTheme != null)
         {
             PlayMusic(mainTheme);
