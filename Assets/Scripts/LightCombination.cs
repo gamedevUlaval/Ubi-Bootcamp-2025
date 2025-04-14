@@ -24,7 +24,8 @@ public class LightCombination : NetworkBehaviour
         
         attempt.Add(id);
         if (attempt.Count <= answer.Count)
-            _renderer.material.SetColor("_BaseColor", Color.yellow);
+            //_renderer.material.SetColor("_BaseColor", Color.yellow);
+            tiles[id-1].transform.position -= new Vector3(0, 0.4f, 0);
 
         for (int i = 0; i < attempt.Count; i++)
         {
@@ -33,8 +34,10 @@ public class LightCombination : NetworkBehaviour
                 attempt.Clear();
                 for (int j = 0; j < tiles.Length; j++)
                 {
-                    Renderer _r = tiles[j].GetComponent<Renderer>();
-                    _r.material.SetColor("_BaseColor", defaultColor);
+                    //Renderer _r = tiles[j].GetComponent<Renderer>();
+                    //_r.material.SetColor("_BaseColor", defaultColor);
+                    Vector3 tilePosition = tiles[j].transform.position;
+                    tiles[j].transform.position = new Vector3(tilePosition.x, 0.4f, tilePosition.z);
                 }
             }
         }

@@ -58,7 +58,7 @@ public class PushObj : NetworkBehaviour
     {
         if (!collision.gameObject.CompareTag("Ghost"))
             return;
-        rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY;
+        rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
     }
 }
 

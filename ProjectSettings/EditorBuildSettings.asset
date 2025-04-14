@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CorridorBack.unity
     guid: d429bebad0a47484a82e3cf94fd12422
+  - enabled: 1
+    path: Assets/Scenes/Level_lampes.unity
+    guid: c2666b4a679dcb244881f48c687c03cb
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
