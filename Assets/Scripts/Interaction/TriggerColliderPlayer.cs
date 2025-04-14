@@ -4,7 +4,8 @@ using UnityEngine;
 public enum PlayerType
 {
     Human,
-    Ghost
+    Ghost,
+    None
 }
 
 [RequireComponent(typeof(Collider))]

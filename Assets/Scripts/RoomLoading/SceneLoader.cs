@@ -137,10 +137,10 @@ public class SceneLoader : NetworkBehaviour
     {
         if (!IsSessionOwner)
             return;
-        Debug.Log($"Loading adjacent rooms");
+        //Debug.Log($"Loading adjacent rooms");
         foreach (var sceneName in rooms.Array)
         {
-            Debug.Log($"Loading room {sceneName}");
+            //Debug.Log($"Loading room {sceneName}");
             LoadScene(sceneName);
         }
     }
@@ -174,26 +174,26 @@ public class SceneLoader : NetworkBehaviour
     
     void OnLoad(ulong clientId, string sceneName, LoadSceneMode loadSceneMode, AsyncOperation asyncOperation)
     {
-        Debug.Log($"OnLoad: {sceneName}");
+        //Debug.Log($"OnLoad: {sceneName}");
         loadingScenes[sceneName] = asyncOperation;
     }
     
     void OnUnload(ulong clientId, string sceneName, AsyncOperation asyncOperation)
     {
-        Debug.Log($"OnUnload: {sceneName}");
+        //Debug.Log($"OnUnload: {sceneName}");
         unloadingScenes[sceneName] = asyncOperation;
     }
 
     void OnLoadComplete(ulong clientId, string sceneName, LoadSceneMode loadSceneMode)
     {
-        Debug.Log($"OnLoadComplete: {sceneName}");
+        //Debug.Log($"OnLoadComplete: {sceneName}");
         loadingScenes.Remove(sceneName);
         loadedScenes.TryAdd(sceneName, null);
     }
     
     void OnUnloadComplete(ulong clientId, string sceneName)
     {
-        Debug.Log($"OnUnloadComplete: {sceneName}");
+        //Debug.Log($"OnUnloadComplete: {sceneName}");
         unloadingScenes.Remove(sceneName);
         loadedScenes.Remove(sceneName);
     }
