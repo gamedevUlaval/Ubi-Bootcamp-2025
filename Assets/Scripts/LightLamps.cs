@@ -39,11 +39,9 @@ public class LightLamps : NetworkBehaviour, IInteractable
         for (int i = 0; i < lamps.Length; i++)
         {
             SoundManager.Instance.PlaySFX(lightSound);
-            Renderer _renderer = lamps[i].GetComponent<Renderer>();
-            Color defaultcolor = _renderer.material.color;
-            _renderer.material.SetColor("_BaseColor", Color.yellow);
+            lamps[i].SetActive(true);
             yield return new WaitForSeconds(delay);
-            _renderer.material.SetColor("_BaseColor", defaultcolor);
+            lamps[i].SetActive(false);
         }
         isPlaying = false;
     }
