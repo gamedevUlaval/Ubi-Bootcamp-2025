@@ -155,7 +155,7 @@ MonoBehaviour:
   sceneName: CorridorBack
   adjacentRooms:
   - LightningLevel
-  - LevelBran
+  - Level_lampes
   - CorridorFront
   - AdditionalLevel
 --- !u!65 &287618332
