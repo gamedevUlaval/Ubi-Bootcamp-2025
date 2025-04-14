@@ -157,7 +157,7 @@ MonoBehaviour:
   - LightningLevel
   - Level_lampes
   - CorridorFront
-  - AdditionalLevel
+  - levelTableau
 --- !u!65 &287618332
 BoxCollider:
   m_ObjectHideFlags: 0
