@@ -155,7 +155,7 @@ MonoBehaviour:
   sceneName: CorridorFront
   adjacentRooms:
   - Level1
-  - LevelBran
+  - Level_lampes
   - CorridorBack
 --- !u!65 &287618332
 BoxCollider:
