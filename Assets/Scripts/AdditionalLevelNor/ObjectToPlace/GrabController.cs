@@ -49,7 +49,7 @@ public class GrabController : NetworkBehaviour
             heldObject = rb;
             heldObject.useGravity = false;
             heldObject.linearVelocity = Vector3.zero;
-
+            heldObject.MovePosition(grabPoint.position);
             if (heldObject.TryGetComponent(out NetworkObject netObj))
             {
                 if (netObj.OwnerClientId != NetworkManager.Singleton.LocalClientId)
