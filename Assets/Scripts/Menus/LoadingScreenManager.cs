@@ -21,23 +21,23 @@ public class LoadingScreenManager : MonoBehaviour
     public void LoadMainScene()
     {
         audioListener.enabled = false;
-        StartCoroutine(LoadAsynchronously());
+        //StartCoroutine(LoadAsynchronously());
     }
     
-    IEnumerator LoadAsynchronously()
-    {
-        AsyncOperation scene1 = SceneManager.LoadSceneAsync("Scenes/", LoadSceneMode.Additive); //TODO change scene name
-        //AsyncOperation scene2 = SceneManager.LoadSceneAsync("Scenes/Visual_Forest", LoadSceneMode.Additive);
-        
-        while (!scene1.isDone) //|| !scene2.isDone)
-        {
-            float progress = Mathf.Clamp01(scene1.progress / .9f);
-            progressBar.value = progress;
-            percentageText.text = progress * 100f + "%";
-            
-            yield return null;
-        }
-        
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(""));
-    }
+    // IEnumerator LoadAsynchronously()
+    // {
+    //     AsyncOperation scene1 = SceneManager.LoadSceneAsync("Scenes/", LoadSceneMode.Additive); //TODO change scene name
+    //     //AsyncOperation scene2 = SceneManager.LoadSceneAsync("Scenes/Visual_Forest", LoadSceneMode.Additive);
+    //     
+    //     while (!scene1.isDone) //|| !scene2.isDone)
+    //     {
+    //         float progress = Mathf.Clamp01(scene1.progress / .9f);
+    //         progressBar.value = progress;
+    //         percentageText.text = progress * 100f + "%";
+    //         
+    //         yield return null;
+    //     }
+    //     
+    //     SceneManager.SetActiveScene(SceneManager.GetSceneByName(""));
+    // }
 }

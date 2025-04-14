@@ -1,21 +1,26 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using NUnit.Framework.Constraints;
 using Unity.Multiplayer.Playmode;
 using Unity.Netcode;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Multiplayer;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ConnectionManager : MonoBehaviour
 {
-   private string _profileName;
-   private string _sessionName;
+   public string ProfileName;
+   public string SessionName;
    private int _maxPlayers = 2;
+   public bool GuiEnabled = false;
    private ConnectionState _state = ConnectionState.Disconnected;
    private ISession _session;
    private NetworkManager m_NetworkManager;
+   
+   public static ConnectionManager Instance { get; private set; }
 
    private enum ConnectionState
    {
@@ -26,14 +31,19 @@ public class ConnectionManager : MonoBehaviour
 
     private async void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
         m_NetworkManager = GetComponent<NetworkManager>();
         m_NetworkManager.OnClientConnectedCallback += OnClientConnectedCallback;
         m_NetworkManager.OnSessionOwnerPromoted += OnSessionOwnerPromoted;
         await UnityServices.InitializeAsync();
         if (CurrentPlayer.ReadOnlyTags().Any(str=>str.Contains("INIT")))
         {
-            _sessionName = Environment.UserName;//+System.DateTime.Now.ToString("HHmm");
-            _profileName = Environment.UserName + CurrentPlayer.ReadOnlyTags().First();//+System.DateTime.Now.ToString("HHmm");
+            GuiEnabled = true;
+            SessionName = Environment.UserName;//+System.DateTime.Now.ToString("HHmm");
+            ProfileName = Environment.UserName + CurrentPlayer.ReadOnlyTags().First();//+System.DateTime.Now.ToString("HHmm");
             if (CurrentPlayer.ReadOnlyTags().Any(str=>str.Contains("GHOST")))
             {
                 await Task.Delay(1000);
@@ -64,6 +74,8 @@ public class ConnectionManager : MonoBehaviour
 
    private void OnGUI()
    {
+       if (!GuiEnabled)
+           return;
        if (_state == ConnectionState.Connected)
            return;
 
@@ -72,16 +84,16 @@ public class ConnectionManager : MonoBehaviour
        using (new GUILayout.HorizontalScope(GUILayout.Width(250)))
        {
            GUILayout.Label("Profile Name", GUILayout.Width(100));
-           _profileName = GUILayout.TextField(_profileName);
+           ProfileName = GUILayout.TextField(ProfileName);
        }
 
        using (new GUILayout.HorizontalScope(GUILayout.Width(250)))
        {
            GUILayout.Label("Session Name", GUILayout.Width(100));
-           _sessionName = GUILayout.TextField(_sessionName);
+           SessionName = GUILayout.TextField(SessionName);
        }
 
-       GUI.enabled = GUI.enabled && !string.IsNullOrEmpty(_profileName) && !string.IsNullOrEmpty(_sessionName);
+       GUI.enabled = GUI.enabled && !string.IsNullOrEmpty(ProfileName) && !string.IsNullOrEmpty(SessionName);
 
        if (GUILayout.Button("Create or Join Session"))
        {
@@ -94,7 +106,7 @@ public class ConnectionManager : MonoBehaviour
        _session?.LeaveAsync();
    }
 
-   private async Task CreateOrJoinSessionAsync()
+   public async Task CreateOrJoinSessionAsync()
    {
        _state = ConnectionState.Connecting;
 
@@ -104,16 +116,16 @@ public class ConnectionManager : MonoBehaviour
            {
                AuthenticationService.Instance.SignOut();
            }
-           AuthenticationService.Instance.SwitchProfile(_profileName);
+           AuthenticationService.Instance.SwitchProfile(ProfileName);
            await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
            var options = new SessionOptions()
            {
-               Name = _sessionName,
+               Name = SessionName,
                MaxPlayers = _maxPlayers
            }.WithDistributedAuthorityNetwork();
 
-           _session = await MultiplayerService.Instance.CreateOrJoinSessionAsync(_sessionName, options);
+           _session = await MultiplayerService.Instance.CreateOrJoinSessionAsync(SessionName, options);
 
            _state = ConnectionState.Connected;
        }
