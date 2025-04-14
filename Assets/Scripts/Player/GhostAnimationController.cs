@@ -1,15 +1,13 @@
 using UnityEngine;
 using Unity.Netcode;
-using PlayerMovement; // Important ! Pour reconnaître PlayerMovementController
-
-[RequireComponent(typeof(Animator))]
+using PlayerMovement;
 public class GhostAnimationController : NetworkBehaviour
 {
     private Animator _animator;
     private PlayerMovementController _movementController;
     private bool isMoving;
 
-    private static readonly int IsMoving = Animator.StringToHash("isMoving");
+    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 
     [SerializeField] private float idleSpeed = 0.4f;
 
@@ -27,7 +25,6 @@ public class GhostAnimationController : NetworkBehaviour
         Vector3 move = _movementController.GetPlayerMovement();
         isMoving = move.magnitude > 0.05f;
 
-        _animator.SetBool("IsMoving", isMoving);
-        _animator.speed = isMoving ? 1f : idleSpeed;
+        _animator.SetBool(IsMoving, isMoving);
     }
 }
