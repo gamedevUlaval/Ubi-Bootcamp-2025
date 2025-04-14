@@ -56,6 +56,14 @@ MonoBehaviour:
   loopingSource: {fileID: 8987367208255856622}
   mainTheme: {fileID: 8300000, guid: 11ab2793e4da8964cba6d3b21ef97aea, type: 3}
   successMusic: {fileID: 8300000, guid: 507d5aa8800ce2547af15223c5546727, type: 3}
+  firstLevelMusic: {fileID: 8300000, guid: 11ab2793e4da8964cba6d3b21ef97aea, type: 3}
+  lightningLevelMusic: {fileID: 8300000, guid: 9642cf1ca18c969479ed716b5e6ac534, type: 3}
+  lampsLevelMusic: {fileID: 8300000, guid: 521ec7713f776084ab843ce3601fdb40, type: 3}
+  frameLevelMusic: {fileID: 8300000, guid: d6170f5bb72d37145ba861eeeb0d9088, type: 3}
+  levelLampeName: Level_lampes
+  levelLightningName: LightningLevel
+  levelFramesName: levelTableau
+  levelOneName: Level1
   woodFootsteps:
   - {fileID: 8300000, guid: 81121b95ebba41c47929dae1266481af, type: 3}
   - {fileID: 8300000, guid: a9751bbb7def6e34389d427517fa8674, type: 3}
