@@ -54,7 +54,7 @@ MonoBehaviour:
   menuSource: {fileID: 3548162599451039772}
   foleysSource: {fileID: 2007217267578333218}
   loopingSource: {fileID: 8987367208255856622}
-  mainTheme: {fileID: 8300000, guid: 11ab2793e4da8964cba6d3b21ef97aea, type: 3}
+  mainTheme: {fileID: 8300000, guid: aa8c9a80eba507248bb8c42e961a5642, type: 3}
   successMusic: {fileID: 8300000, guid: 507d5aa8800ce2547af15223c5546727, type: 3}
   firstLevelMusic: {fileID: 8300000, guid: 11ab2793e4da8964cba6d3b21ef97aea, type: 3}
   lightningLevelMusic: {fileID: 8300000, guid: 9642cf1ca18c969479ed716b5e6ac534, type: 3}
