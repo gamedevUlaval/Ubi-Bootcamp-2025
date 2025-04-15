@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerInteraction : NetworkBehaviour
 {
-    [SerializeField] float maxInteractionDistance = 5f;
+    [SerializeField] float maxInteractionDistance = 10f;
     [SerializeField] float angleOfDetection = 0.5f;
     [SerializeField] Transform playerHead;
     

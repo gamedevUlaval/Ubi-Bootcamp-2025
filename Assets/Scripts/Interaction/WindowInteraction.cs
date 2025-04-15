@@ -14,7 +14,7 @@ public class WindowInteraction : NetworkBehaviour, IInteractable
 
     void Start()
     {
-        timer = randomnessInterval.x;
+        timer = Random.Range(randomnessInterval.x, randomnessInterval.y);
         cooldown = 0;
     }
 

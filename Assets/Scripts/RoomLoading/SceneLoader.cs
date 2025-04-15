@@ -2,18 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
-using NUnit.Framework;
 using RoomLoading;
 using Unity.Netcode;
 
 public class SceneLoader : NetworkBehaviour
 {
-    public UnityEditor.SceneAsset StartingScene;
+    public string StartingScene;
     public float cameraTweenDuration = 1f;
     
     Dictionary<string, Scene?> loadedScenes = new Dictionary<string, Scene?>();
@@ -47,11 +45,11 @@ public class SceneLoader : NetworkBehaviour
             Debug.Log("No room detected where the player is standing at start.");
             if (IsSessionOwner)
             {
-                StartCoroutine(LoadInitialSceneAsync(StartingScene.name));
+                StartCoroutine(LoadInitialSceneAsync(StartingScene));
             }
             else
             {
-                StartCoroutine(WaitForInitialSceneAsync(StartingScene.name));
+                StartCoroutine(WaitForInitialSceneAsync(StartingScene));
             }
         }
         else

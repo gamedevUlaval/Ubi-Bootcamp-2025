@@ -5218,7 +5218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  StartingScene: {fileID: 102900000, guid: e6453ee8a696f067bbe1f9b813da5e12, type: 3}
+  StartingScene: Level1
   cameraTweenDuration: 1
 --- !u!95 &703469492347210509
 Animator:

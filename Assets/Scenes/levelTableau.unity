@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38928694, y: -0.5905053, z: 0.38975096, w: 0.589791}
-  m_LocalPosition: {x: 47.3, y: 24, z: 53}
+  m_LocalPosition: {x: 47.3, y: 24, z: 38.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -226,6 +226,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3894246933659061922, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 19.591269
+      objectReference: {fileID: 0}
     - target: {fileID: 4635595738085626759, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.77
@@ -250,6 +254,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1.02
       objectReference: {fileID: 0}
+    - target: {fileID: 4898963932714219042, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.28
+      objectReference: {fileID: 0}
     - target: {fileID: 5537750931434895669, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.52
@@ -260,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5537750931434895669, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 46.98
+      value: 32.2
       objectReference: {fileID: 0}
     - target: {fileID: 5537750931434895669, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -297,6 +305,18 @@ PrefabInstance:
     - target: {fileID: 6410036572461260967, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652328905651898234, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20.380001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652328905651898234, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273148117600497933, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7558822443031309083, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}
       propertyPath: m_Color.b
@@ -375,7 +395,9 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2025759688890365766, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}
+    - {fileID: 1078125511038673004, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2150dbcc6380104ab98bdb1d1ddd89a, type: 3}

@@ -1,6 +1,5 @@
 using PlayerControls;
 using TMPro;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 public class TableauBehaviour : MonoBehaviour  /*IInteractable*/
 {

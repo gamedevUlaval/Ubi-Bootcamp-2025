@@ -5,11 +5,14 @@ using UnityEngine.Serialization;
 public class DoorBehaviour : NetworkBehaviour, IInteractable
 {
     public AudioClip failureAudioClip;
+    public GameObject endScreenGob;
 
     [Rpc(SendTo.Everyone, RequireOwnership = false)]
     public void OpenDoorRpc()
     {
-        SoundManager.Instance.PlaySuccessMusic();
+        SoundManager.Instance.PlayMainTheme();
+        SoundManager.Instance.MuteAllSfx();
+        endScreenGob.SetActive(true);
     }
 
     public void Interact()

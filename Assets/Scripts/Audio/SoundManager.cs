@@ -52,10 +52,7 @@ public class SoundManager : MonoBehaviour
     {
         sceneMusicMap = new Dictionary<string, AudioClip> {
             { levelLightningName, lightningLevelMusic} , {levelFramesName, frameLevelMusic} , {levelLampeName, lampsLevelMusic}, {levelOneName, firstLevelMusic}};
-        if (mainTheme != null)
-        {
-            PlayMusic(mainTheme);
-        }
+        PlayMainTheme();
     }
 
     /// <summary>
@@ -68,6 +65,20 @@ public class SoundManager : MonoBehaviour
         musicSource.clip = clip;
         musicSource.loop = loop;
         musicSource.Play();
+    }
+
+    public void PlayMainTheme()
+    {
+        if (mainTheme != null)
+        {
+            PlayMusic(mainTheme);
+        }
+    }
+
+    public void MuteAllSfx()
+    {
+        sfxSource.mute = true;
+        foleysSource.mute = true;
     }
 
     /// <summary>
